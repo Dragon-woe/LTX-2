@@ -152,52 +152,10 @@ VIDEO_ONLY_EMBEDDINGS_PROCESSOR_KEY_OPS = (
 )
 
 
-def _get_gemma_base_model(model: Gemma3ForConditionalGeneration):
-    """Return the inner model object for different Gemma3 HF layouts."""
-    inner = getattr(model, "model", None)
-    if inner is not None and (
-        hasattr(inner, "vision_tower")
-        or hasattr(inner, "language_model")
-        or hasattr(inner, "multi_modal_projector")
-    ):
-        return inner
-    return model
-
-
-def _resolve_vision_model(model: Gemma3ForConditionalGeneration):
-    base = _get_gemma_base_model(model)
-
-    if hasattr(base, "vision_tower"):
-        vision_tower = base.vision_tower
-    elif hasattr(model, "vision_tower"):
-        vision_tower = model.vision_tower
-    else:
-        raise AttributeError(
-            "Gemma3 vision tower not found. Expected either model.model.vision_tower or model.vision_tower."
-        )
-
-    if hasattr(vision_tower, "vision_model"):
-        return vision_tower.vision_model
-    return vision_tower
-
-
-def _resolve_language_model(model: Gemma3ForConditionalGeneration):
-    base = _get_gemma_base_model(model)
-
-    if hasattr(base, "language_model"):
-        return base.language_model
-    if hasattr(model, "language_model"):
-        return model.language_model
-
-    raise AttributeError(
-        "Gemma3 language model not found. Expected either model.model.language_model or model.language_model."
-    )
-
-
 def create_and_populate(module: GemmaTextEncoder) -> GemmaTextEncoder:
     model = module.model
-    v_model = _resolve_vision_model(model)
-    l_model = _resolve_language_model(model)
+    v_model = model.model.vision_tower.vision_model
+    l_model = model.model.language_model
 
     config = model.config.text_config
     dim = getattr(config, "head_dim", config.hidden_size // config.num_attention_heads)
@@ -212,32 +170,7 @@ def create_and_populate(module: GemmaTextEncoder) -> GemmaTextEncoder:
         else:
             base = 10000.0
     local_rope_freqs = 1.0 / (base ** (torch.arange(0, dim, 2, dtype=torch.int64).to(dtype=torch.float) / dim))
-    rope_scaling = getattr(config, "rope_scaling", {}) or {}
-    rope_type = None
-
-    if isinstance(rope_scaling, dict):
-        rope_type = rope_scaling.get("rope_type") or rope_scaling.get("type")
-
-    if rope_type is None:
-        rope_params = getattr(config, "rope_parameters", {}) or {}
-        if isinstance(rope_params, dict):
-            if isinstance(rope_params.get("full_attention"), dict):
-                rope_type = (
-                    rope_params["full_attention"].get("rope_type")
-                    or rope_params["full_attention"].get("type")
-                )
-            elif isinstance(rope_params.get("sliding_attention"), dict):
-                rope_type = (
-                    rope_params["sliding_attention"].get("rope_type")
-                    or rope_params["sliding_attention"].get("type")
-                )
-            else:
-                rope_type = rope_params.get("rope_type") or rope_params.get("type")
-
-    if rope_type is None:
-        rope_type = "default"
-
-    inv_freqs, _ = ROPE_INIT_FUNCTIONS[rope_type](config)
+    inv_freqs, _ = ROPE_INIT_FUNCTIONS[config.rope_scaling["rope_type"]](config)
 
     positions_length = len(v_model.embeddings.position_ids[0])
     position_ids = torch.arange(positions_length, dtype=torch.long, device="cpu").unsqueeze(0)

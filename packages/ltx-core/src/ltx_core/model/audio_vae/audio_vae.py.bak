@@ -504,8 +504,5 @@ def decode_audio(latent: torch.Tensor, audio_decoder: "AudioDecoder", vocoder: "
         Decoded audio with waveform and sampling rate.
     """
     decoded_audio = audio_decoder(latent)
-    if decoded_audio.device.type == "npu":
-        vocoder = vocoder.to(device=decoded_audio.device, dtype=torch.float16)
-        decoded_audio = decoded_audio.to(torch.float16)
     waveform = vocoder(decoded_audio).squeeze(0).float()
     return Audio(waveform=waveform, sampling_rate=vocoder.output_sampling_rate)

@@ -1,81 +1,6 @@
 from enum import Enum
 
-import logging
-import os
-
 import torch
-
-try:
-    import torch_npu
-except Exception:
-    torch_npu = None
-
-logger = logging.getLogger(__name__)
-
-_LAYERNORM_INIT_LOGGED = False
-_LAYERNORM_FALLBACK_LOGGED = False
-
-
-def _env_flag(name: str, default: str = "0") -> bool:
-    return os.getenv(name, default).strip().lower() in {"1", "true", "yes", "y", "on"}
-
-
-def _layernorm_switch_mode() -> str:
-    raw = os.getenv("MINDIESD_LAYERNORM_MODE")
-    if raw is None or not raw.strip():
-        raw = os.getenv("TORCH_NPU_LAYERNORM_MODE")
-    if raw is None or not raw.strip():
-        legacy = os.getenv("MINDIESD_LAYERNORM_ENABLE")
-        if legacy is not None and legacy.strip() != "":
-            return "on" if _env_flag("MINDIESD_LAYERNORM_ENABLE", "0") else "off"
-        return "off"
-    return raw.strip().lower()
-
-
-def _layernorm_verbose() -> bool:
-    return _env_flag("MINDIESD_LAYERNORM_VERBOSE", "0") or _env_flag("TORCH_NPU_LAYERNORM_VERBOSE", "0")
-
-
-def _should_use_npu_layer_norm(x: torch.Tensor) -> bool:
-    mode = _layernorm_switch_mode()
-    if mode in {"off", "0", "false", "no", "n", "disable", "disabled", "original", "raw"}:
-        return False
-    if torch_npu is None or not hasattr(torch_npu, "npu_layer_norm_eval"):
-        return False
-    if x.device.type != "npu":
-        return False
-    if torch.is_grad_enabled() or x.requires_grad:
-        return False
-    return True
-
-
-def _apply_layer_norm(layernorm: torch.nn.LayerNorm, x: torch.Tensor) -> torch.Tensor:
-    global _LAYERNORM_INIT_LOGGED, _LAYERNORM_FALLBACK_LOGGED
-
-    if _should_use_npu_layer_norm(x):
-        try:
-            if _layernorm_verbose() and not _LAYERNORM_INIT_LOGGED:
-                logger.info(
-                    "[MindIE-LTX] layernorm mode=%s, normalized_shape=%s, eps=%s, x_shape=%s",
-                    _layernorm_switch_mode(),
-                    tuple(layernorm.normalized_shape) if isinstance(layernorm.normalized_shape, tuple) else layernorm.normalized_shape,
-                    layernorm.eps,
-                    tuple(x.shape),
-                )
-                _LAYERNORM_INIT_LOGGED = True
-            return torch_npu.npu_layer_norm_eval(
-                x,
-                layernorm.normalized_shape,
-                weight=layernorm.weight,
-                bias=layernorm.bias,
-                eps=layernorm.eps,
-            )
-        except Exception as exc:
-            if _layernorm_verbose() and not _LAYERNORM_FALLBACK_LOGGED:
-                logger.warning("[MindIE-LTX] npu_layer_norm_eval fallback to torch LayerNorm: %s", exc)
-                _LAYERNORM_FALLBACK_LOGGED = True
-
-    return layernorm(x)
 
 from ltx_core.guidance.perturbations import BatchedPerturbationConfig
 from ltx_core.model.transformer.adaln import AdaLayerNormSingle, adaln_embedding_coefficient
@@ -456,7 +381,7 @@ class LTXModel(torch.nn.Module):
         )
         shift, scale = scale_shift_values[:, :, 0], scale_shift_values[:, :, 1]
 
-        x = _apply_layer_norm(norm_out, x)
+        x = norm_out(x)
         x = x * (1 + scale) + shift
         x = proj_out(x)
         return x

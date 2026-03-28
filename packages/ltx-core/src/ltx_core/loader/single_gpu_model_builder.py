@@ -84,7 +84,11 @@ class SingleGPUModelBuilder(Generic[ModelType], ModelBuilderProtocol[ModelType],
         return retval
 
     def build(self, device: torch.device | None = None, dtype: torch.dtype | None = None) -> ModelType:
-        device = torch.device("cuda") if device is None else device
+        device = (
+            torch.device("npu")
+            if device is None and hasattr(torch, "npu") and torch.npu.is_available()
+            else torch.device("cuda") if device is None else device
+        )
         config = self.model_config()
         meta_model = self.meta_model(config, self.module_ops)
         model_paths = list(self.model_path) if isinstance(self.model_path, tuple) else [self.model_path]

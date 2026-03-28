@@ -135,7 +135,7 @@ def _fuse_delta_with_cast_fp8(
     device: torch.device,
 ) -> dict[str, torch.Tensor]:
     """Fuse LoRA delta with cast-only FP8 weight (no scale factor)."""
-    if str(device).startswith("cuda"):
+    if str(device).startswith(("cuda", "npu")):
         deltas = calculate_weight_float8(deltas, weight)
     else:
         deltas.add_(weight.to(dtype=deltas.dtype, device=device))

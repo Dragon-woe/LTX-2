@@ -34,6 +34,8 @@ from ltx_pipelines.utils.types import (
 
 
 def get_device() -> torch.device:
+    if hasattr(torch, "npu") and torch.npu.is_available():
+        return torch.device("npu")
     if torch.cuda.is_available():
         return torch.device("cuda")
     return torch.device("cpu")
@@ -41,8 +43,12 @@ def get_device() -> torch.device:
 
 def cleanup_memory() -> None:
     gc.collect()
-    torch.cuda.empty_cache()
-    torch.cuda.synchronize()
+    if hasattr(torch, "npu") and torch.npu.is_available():
+        torch.npu.empty_cache()
+        torch.npu.synchronize()
+    else:
+        torch.cuda.empty_cache()
+        torch.cuda.synchronize()
 
 
 def encode_prompts(

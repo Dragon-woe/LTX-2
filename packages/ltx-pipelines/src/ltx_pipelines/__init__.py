@@ -1,3 +1,9 @@
+import torch
+
+if hasattr(torch, "npu") and torch.npu.is_available():
+    torch.cuda.empty_cache = torch.npu.empty_cache
+    torch.cuda.synchronize = torch.npu.synchronize
+
 """
 LTX-2 Pipelines: High-level video generation pipelines and utilities.
 This package provides ready-to-use pipelines for video generation:
