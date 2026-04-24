@@ -1,0 +1,68 @@
+2026-04-02 21:03:02 | INFO | screen log file: /home/z00617395/LTX/LTX-2/ltx_1npu.rank0.log
+2026-04-02 21:03:02 | INFO | device=npu dtype=torch.bfloat16
+2026-04-02 21:03:02 | INFO | output_path=/home/z00617395/LTX/output/ltx_1npu.mp4
+2026-04-02 21:03:02 | INFO | log_file=/home/z00617395/LTX/LTX-2/ltx_1npu.rank0.log
+2026-04-02 21:03:02 | INFO | ascend_profile_enabled=True
+2026-04-02 21:03:02 | INFO | LTX_ENABLE_PROFILE=1
+2026-04-02 21:03:02 | INFO | [ASCEND-PROFILE] enabled=True
+2026-04-02 21:03:02 | INFO | [ASCEND-PROFILE] output_dir=/home/z00617395/LTX/LTX-2/.ltx_1npu.ascend_profile_tmp
+2026-04-02 21:03:02 | INFO | [ASCEND-PROFILE] switch source: environment variable LTX_ENABLE_PROFILE=1
+2026-04-02 21:03:02 | INFO | [ASCEND-PROFILE] schedule(wait=0, warmup=1, active=10, repeat=1, skip_first=0)
+2026-04-02 21:03:02 | INFO | [ASCEND-PROFILE] flags(record_shapes=False, profile_memory=False, with_stack=False, with_modules=False, with_flops=False)
+2026-04-02 21:03:02 | INFO | [ASCEND-PROFILE] options(level=Level1, aic_metrics=PipeUtilization, l2_cache=False, export_db=False, analyse=True, data_simplification=None)
+2026-04-02 21:03:02 | INFO | [ASCEND-PROFILE] temporary results root: /home/z00617395/LTX/LTX-2/.ltx_1npu.ascend_profile_tmp
+2026-04-02 21:03:02 | INFO | [ASCEND-PROFILE] final exported dir: /home/z00617395/LTX/LTX-2/ASCEND_PROFILER_OUTPUT
+2026-04-02 21:03:23 | INFO | [ASCEND-PROFILE] step=encode_prompts
+2026-04-02 21:03:23 | INFO | [ASCEND-PROFILE] step=stage1_conditionings
+2026-04-02 21:03:34 | INFO | [ENTRY-DEBUG] stage1 transformer class: X0Model
+2026-04-02 21:03:34 | INFO | [ENTRY-DEBUG] stage1 attention-like module count: 288
+2026-04-02 21:03:34 | INFO | [ENTRY-DEBUG] stage1 attention-like samples: velocity_model.transformer_blocks.0.attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.audio_attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.audio_attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.audio_to_video_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.video_to_audio_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.audio_attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.audio_attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.audio_to_video_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.video_to_audio_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.audio_attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.audio_attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.audio_to_video_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.video_to_audio_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.3.attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.3.attn2:Attention[to_q,to_k,to_v,to_out,heads]
+2026-04-02 21:03:34 | INFO | [ASCEND-PROFILE] step=stage1_model_load
+  0%|                                                                                  | 0/30 [00:00<?, ?it/s]  3%|██▍                                                                       | 1/30 [00:06<03:11,  6.60s/it]  7%|████▉                                                                     | 2/30 [00:12<02:57,  6.33s/it] 10%|███████▍                                                                  | 3/30 [00:18<02:48,  6.25s/it] 13%|█████████▊                                                                | 4/30 [00:25<02:41,  6.21s/it] 17%|████████████▎                                                             | 5/30 [00:31<02:34,  6.18s/it] 20%|██████████████▊                                                           | 6/30 [00:37<02:28,  6.17s/it] 23%|█████████████████▎                                                        | 7/30 [00:43<02:21,  6.16s/it] 27%|███████████████████▋                                                      | 8/30 [00:49<02:15,  6.15s/it] 30%|██████████████████████▏                                                   | 9/30 [00:55<02:09,  6.15s/it] 33%|████████████████████████▎                                                | 10/30 [01:01<02:02,  6.15s/it] 37%|██████████████████████████▊                                              | 11/30 [01:08<01:56,  6.14s/it] 40%|█████████████████████████████▏                                           | 12/30 [01:14<01:50,  6.14s/it] 43%|███████████████████████████████▋                                         | 13/30 [01:20<01:44,  6.14s/it] 47%|██████████████████████████████████                                       | 14/30 [01:26<01:38,  6.14s/it] 50%|████████████████████████████████████▌                                    | 15/30 [01:32<01:32,  6.14s/it] 53%|██████████████████████████████████████▉                                  | 16/30 [01:38<01:25,  6.14s/it] 57%|█████████████████████████████████████████▎                               | 17/30 [01:44<01:19,  6.14s/it] 60%|███████████████████████████████████████████▊                             | 18/30 [01:50<01:13,  6.14s/it] 63%|██████████████████████████████████████████████▏                          | 19/30 [01:57<01:07,  6.14s/it] 67%|████████████████████████████████████████████████▋                        | 20/30 [02:03<01:01,  6.14s/it] 70%|███████████████████████████████████████████████████                      | 21/30 [02:09<00:55,  6.14s/it] 73%|█████████████████████████████████████████████████████▌                   | 22/30 [02:15<00:49,  6.14s/it] 77%|███████████████████████████████████████████████████████▉                 | 23/30 [02:21<00:42,  6.14s/it] 80%|██████████████████████████████████████████████████████████▍              | 24/30 [02:27<00:36,  6.14s/it] 83%|████████████████████████████████████████████████████████████▊            | 25/30 [02:33<00:30,  6.14s/it] 87%|███████████████████████████████████████████████████████████████▎         | 26/30 [02:40<00:24,  6.14s/it] 90%|█████████████████████████████████████████████████████████████████▋       | 27/30 [02:46<00:18,  6.14s/it] 93%|████████████████████████████████████████████████████████████████████▏    | 28/30 [02:52<00:12,  6.14s/it] 97%|██████████████████████████████████████████████████████████████████████▌  | 29/30 [02:58<00:06,  6.14s/it]100%|█████████████████████████████████████████████████████████████████████████| 30/30 [03:04<00:00,  6.14s/it]100%|█████████████████████████████████████████████████████████████████████████| 30/30 [03:04<00:00,  6.16s/it]
+2026-04-02 21:06:38 | INFO | [ASCEND-PROFILE] step=stage1_denoise
+2026-04-02 21:06:53 | INFO | [ASCEND-PROFILE] step=stage2_upsample
+2026-04-02 21:06:53 | INFO | [ASCEND-PROFILE] step=stage2_conditionings
+2026-04-02 21:07:07 | INFO | [ENTRY-DEBUG] stage2 transformer class: X0Model
+2026-04-02 21:07:07 | INFO | [ENTRY-DEBUG] stage2 attention-like module count: 288
+2026-04-02 21:07:07 | INFO | [ENTRY-DEBUG] stage2 attention-like samples: velocity_model.transformer_blocks.0.attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.audio_attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.audio_attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.audio_to_video_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.0.video_to_audio_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.audio_attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.audio_attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.audio_to_video_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.1.video_to_audio_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.audio_attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.audio_attn2:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.audio_to_video_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.2.video_to_audio_attn:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.3.attn1:Attention[to_q,to_k,to_v,to_out,heads]; velocity_model.transformer_blocks.3.attn2:Attention[to_q,to_k,to_v,to_out,heads]
+2026-04-02 21:07:07 | INFO | [ASCEND-PROFILE] step=stage2_model_load
+  0%|                                                                                   | 0/3 [00:00<?, ?it/s] 33%|█████████████████████████                                                  | 1/3 [00:09<00:19,  9.96s/it] 67%|██████████████████████████████████████████████████                         | 2/3 [00:19<00:09,  9.87s/it]100%|███████████████████████████████████████████████████████████████████████████| 3/3 [00:29<00:00,  9.85s/it]100%|███████████████████████████████████████████████████████████████████████████| 3/3 [00:29<00:00,  9.86s/it]
+2026-04-02 21:07:36 | INFO | [ASCEND-PROFILE] step=stage2_denoise
+2026-04-02 21:07:38 | INFO | [ASCEND-PROFILE] step=decode_video
+2026-04-02 21:09:37 | INFO | [ASCEND-PROFILE] step=decode_audio
+2026-04-02 21:09:37 | INFO | ========== PIPELINE TIMINGS ==========
+2026-04-02 21:09:37 | INFO | [TIMING] encode_prompts               20.512 s
+2026-04-02 21:09:37 | INFO | [TIMING] stage1_conditionings         0.296 s
+2026-04-02 21:09:37 | INFO | [TIMING] stage1_model_load            9.497 s
+2026-04-02 21:09:37 | INFO | [TIMING] stage1_denoise               184.721 s
+2026-04-02 21:09:37 | INFO | [TIMING] stage2_upsample              13.714 s
+2026-04-02 21:09:37 | INFO | [TIMING] stage2_conditionings         0.000 s
+2026-04-02 21:09:37 | INFO | [TIMING] stage2_model_load            12.321 s
+2026-04-02 21:09:37 | INFO | [TIMING] stage2_denoise               29.613 s
+2026-04-02 21:09:37 | INFO | [TIMING] decode_video                 0.246 s
+2026-04-02 21:09:37 | INFO | [TIMING] decode_audio                 119.438 s
+2026-04-02 21:09:37 | INFO | [TIMING] pipeline_total               394.985 s
+2026-04-02 21:09:37 | INFO | ====================================
+[2026-04-02 21:09:37] [WARNING] [75423] profiler.py: Stop profiler while current state is RECORD_AND_SAVE, perhaps the scheduling cycle has not yet completed.
+[2026-04-02 21:09:38] [INFO] [87752] profiler.py: Start parsing profiling data in sync mode at: /home/z00617395/LTX/LTX-2/.ltx_1npu.ascend_profile_tmp/hostname-xxi4w.foreman.pxe_75423_20260402210302833_ascend_pt
+|[2026-04-02 21:09:38] [WARNING] [87777] profiler.py: The parsing time is expected to exceed 30 minutes, and you can choose to stop the process and use offline parsing.
+/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/-\|/Exception in thread Thread-2:
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.11/threading.py", line 1045, in _bootstrap_inner
+    self.run()
+  File "/usr/local/Ascend/ascend-toolkit/latest/python/site-packages/tbe/common/repository_manager/utils/multiprocess_util.py", line 68, in run
+    item = self.task_q.get()
+           ^^^^^^^^^^^^^^^^^
+  File "<string>", line 2, in get
+  File "/usr/local/lib/python3.11/multiprocessing/managers.py", line 822, in _callmethod
+    kind, result = conn.recv()
+                   ^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/multiprocessing/connection.py", line 250, in recv
+    buf = self._recv_bytes()
+          ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/multiprocessing/connection.py", line 430, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/multiprocessing/connection.py", line 399, in _recv
+    raise EOFError
+EOFError

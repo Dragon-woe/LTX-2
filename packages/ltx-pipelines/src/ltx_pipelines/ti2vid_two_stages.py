@@ -175,7 +175,7 @@ def env_flag(name: str, default: bool = False) -> bool:
 
 ASCEND_PROFILE_DEFAULTS = {
     "wait": 0,
-    "warmup": 0,
+    "warmup": 1,
     "active": 10,
     "repeat": 1,
     "skip_first": 0,

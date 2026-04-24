@@ -1,3 +1,4 @@
+from torch_npu.contrib import transfer_to_npu
 import logging
 from collections.abc import Iterator
 

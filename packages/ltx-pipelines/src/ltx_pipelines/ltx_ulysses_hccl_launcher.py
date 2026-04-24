@@ -7,7 +7,7 @@ Ascend NPU / HCCL Ulysses launcher for LTX-2 two-stage inference.
 Usage:
   export ASCEND_RT_VISIBLE_DEVICES=0,1,2,3,4,5,6,7
   export PYTHONPATH=/path/to/LTX-2/packages/ltx-pipelines/src:/path/to/LTX-2/packages/ltx-core/src:$PYTHONPATH
-  torchrun --nproc_per_node=8 --master_port=29501 /path/to/ltx_ulysses_hccl_launcher_fixed.py \
+  torchrun --nproc_per_node=8 --master_port=29501 /path/to/ltx_ulysses_hccl_launcher_profile_warmup1.py \
     --checkpoint-path ... \
     --distilled-lora ... 0.8 \
     --spatial-upsampler-path ... \
@@ -22,7 +22,9 @@ What this launcher does:
   3) Monkey-patch Attention.forward so self-attention uses Ulysses all-to-all.
   4) Monkey-patch LTXModel.forward so TransformerArgs are sequence-sharded before
      transformer blocks and gathered back after _process_output().
-  5) Call the original ltx_pipelines.ti2vid_two_stages.main().
+  5) Reuse ti2vid_two_stages.py's own profiler mechanism, but allow overriding
+     Ascend profiler defaults from environment variables.
+  6) Call the original ltx_pipelines.ti2vid_two_stages.main().
 
 Notes:
   - This version assumes the sequence length is divisible by world_size.
@@ -30,6 +32,10 @@ Notes:
   - Audio self-attention Ulysses is disabled by default; enable with:
         export LTX_ULYSSES_PATCH_AUDIO_SELF_ATTN=1
   - Cross-attention paths remain unchanged.
+  - Profiling is enabled only when:
+        export LTX_ENABLE_PROFILE=1
+    and warmup defaults to 1 unless overridden by:
+        export LTX_PROFILE_WARMUP=1
 """
 
 import importlib
@@ -240,7 +246,6 @@ def patch_basic_block() -> None:
     BasicAVTransformerBlock._ulysses_patched = True
 
 
-
 def patch_attention_forward() -> None:
     attn_mod = importlib.import_module("ltx_core.model.transformer.attention")
     Attention = attn_mod.Attention
@@ -338,7 +343,6 @@ def patch_attention_forward() -> None:
     Attention._ulysses_patched = True
 
 
-
 def _import_ltx_model_module():
     for mod_name in (
         "ltx_core.model.transformer.model",
@@ -353,7 +357,6 @@ def _import_ltx_model_module():
     raise ModuleNotFoundError(
         "Cannot find LTXModel. Tried ltx_core.model.transformer.model and ltx_core.model.transformer.x0_model"
     )
-
 
 
 def patch_ltxmodel_forward() -> None:
@@ -454,10 +457,8 @@ def _infer_output_path(argv: list[str]) -> str | None:
     return None
 
 
-
 def _has_flag(argv: list[str], *flags: str) -> bool:
     return any(a == f or a.startswith(f + "=") for a in argv for f in flags)
-
 
 
 def _inject_rank_log_file(argv: list[str]) -> list[str]:
@@ -467,7 +468,6 @@ def _inject_rank_log_file(argv: list[str]) -> list[str]:
     stem = Path(output_path).expanduser().resolve().stem or "ltx_output"
     log_path = str((Path.cwd() / f"{stem}.rank{DIST.rank}.log").resolve())
     return argv + ["--log-file", log_path]
-
 
 
 def _patch_two_stage_runtime(two_stage_mod) -> None:
@@ -495,12 +495,59 @@ def _patch_two_stage_runtime(two_stage_mod) -> None:
         two_stage_mod.default_current_dir_sidecar_path = rank_sidecar
 
 
-
 def install_all_patches() -> None:
     init_dist_if_needed()
     patch_basic_block()
     patch_attention_forward()
     patch_ltxmodel_forward()
+
+
+def patch_two_stage_profiler_defaults() -> None:
+    """
+    Reuse ti2vid_two_stages.py's own Ascend profiler mechanism,
+    but allow overriding schedule defaults from env.
+    """
+    two_stage_mod = importlib.import_module("ltx_pipelines.ti2vid_two_stages")
+
+    defaults = getattr(two_stage_mod, "ASCEND_PROFILE_DEFAULTS", None)
+    if not isinstance(defaults, dict):
+        LOG.warning("ASCEND_PROFILE_DEFAULTS not found in ti2vid_two_stages")
+        return
+
+    def _env_int(name: str, fallback: int) -> int:
+        v = os.getenv(name)
+        return fallback if v is None or v == "" else int(v)
+
+    def _env_bool(name: str, fallback: bool) -> bool:
+        v = os.getenv(name)
+        if v is None:
+            return fallback
+        return v.strip().lower() in {"1", "true", "yes", "y", "on"}
+
+    defaults["wait"] = _env_int("LTX_PROFILE_WAIT", defaults.get("wait", 0))
+    defaults["warmup"] = _env_int("LTX_PROFILE_WARMUP", 1)
+    defaults["active"] = _env_int("LTX_PROFILE_ACTIVE", defaults.get("active", 10))
+    defaults["repeat"] = _env_int("LTX_PROFILE_REPEAT", defaults.get("repeat", 1))
+    defaults["skip_first"] = _env_int("LTX_PROFILE_SKIP_FIRST", defaults.get("skip_first", 0))
+
+    defaults["record_shapes"] = _env_bool("LTX_PROFILE_RECORD_SHAPES", defaults.get("record_shapes", False))
+    defaults["memory"] = _env_bool("LTX_PROFILE_MEMORY", defaults.get("memory", False))
+    defaults["with_stack"] = _env_bool("LTX_PROFILE_WITH_STACK", defaults.get("with_stack", False))
+    defaults["with_modules"] = _env_bool("LTX_PROFILE_WITH_MODULES", defaults.get("with_modules", False))
+    defaults["with_flops"] = _env_bool("LTX_PROFILE_WITH_FLOPS", defaults.get("with_flops", False))
+    defaults["l2_cache"] = _env_bool("LTX_PROFILE_L2_CACHE", defaults.get("l2_cache", False))
+    defaults["export_db"] = _env_bool("LTX_PROFILE_EXPORT_DB", defaults.get("export_db", False))
+    defaults["analyse"] = _env_bool("LTX_PROFILE_ANALYSE", defaults.get("analyse", True))
+
+    if os.getenv("LTX_PROFILE_LEVEL"):
+        defaults["level"] = os.getenv("LTX_PROFILE_LEVEL")
+    if os.getenv("LTX_PROFILE_AIC_METRICS"):
+        defaults["aic_metrics"] = os.getenv("LTX_PROFILE_AIC_METRICS")
+
+    LOG.info(
+        "patched ASCEND_PROFILE_DEFAULTS: wait=%s warmup=%s active=%s repeat=%s skip_first=%s",
+        defaults["wait"], defaults["warmup"], defaults["active"], defaults["repeat"], defaults["skip_first"],
+    )
 
 
 # -----------------------------------------------------------------------------
@@ -512,6 +559,7 @@ def main() -> None:
     logging.basicConfig(level=logging.INFO, format="%(asctime)s | %(levelname)s | %(message)s")
     init_dist_if_needed()
     install_all_patches()
+    patch_two_stage_profiler_defaults()
 
     # Prevent default log collisions when caller didn't pass --log-file.
     sys.argv = [sys.argv[0], *_inject_rank_log_file(sys.argv[1:])]
@@ -520,13 +568,16 @@ def main() -> None:
     _patch_two_stage_runtime(two_stage_mod)
 
     LOG.info(
-        "Ulysses launcher ready: rank=%d local_rank=%d world_size=%d device=%s video_self_attn=%s audio_self_attn=%s",
+        "Ulysses launcher ready: rank=%d local_rank=%d world_size=%d device=%s "
+        "video_self_attn=%s audio_self_attn=%s profile=%s warmup=%s",
         DIST.rank,
         DIST.local_rank,
         DIST.world_size,
         DIST.device,
         _env_flag("LTX_ULYSSES_PATCH_VIDEO_SELF_ATTN", "1"),
         _env_flag("LTX_ULYSSES_PATCH_AUDIO_SELF_ATTN", "0"),
+        _env_flag("LTX_ENABLE_PROFILE", "0"),
+        os.getenv("LTX_PROFILE_WARMUP", "1"),
     )
 
     if not hasattr(two_stage_mod, "main"):
