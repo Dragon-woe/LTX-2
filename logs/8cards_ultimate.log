@@ -1,0 +1,325 @@
+W0424 18:40:45.164000 605253 torch/distributed/run.py:803] 
+W0424 18:40:45.164000 605253 torch/distributed/run.py:803] *****************************************
+W0424 18:40:45.164000 605253 torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0424 18:40:45.164000 605253 torch/distributed/run.py:803] *****************************************
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:345: ImportWarning: 
+    *************************************************************************************************************
+    The torch.Tensor.cuda and torch.nn.Module.cuda are replaced with torch.Tensor.npu and torch.nn.Module.npu now..
+    The torch.cuda.DoubleTensor is replaced with torch.npu.FloatTensor cause the double type is not supported now..
+    The backend in torch.distributed.init_process_group set to hccl now..
+    The torch.cuda.* and torch.cuda.amp.* are replaced with torch.npu.* and torch.npu.amp.* now..
+    The device parameters have been replaced with npu in the function below:
+    torch.logspace, torch.randint, torch.hann_window, torch.rand, torch.full_like, torch.ones_like, torch.rand_like, torch.randperm, torch.arange, torch.frombuffer, torch.normal, torch._empty_per_channel_affine_quantized, torch.empty_strided, torch.empty_like, torch.scalar_tensor, torch.tril_indices, torch.bartlett_window, torch.ones, torch.sparse_coo_tensor, torch.randn, torch.kaiser_window, torch.tensor, torch.triu_indices, torch.as_tensor, torch.zeros, torch.randint_like, torch.full, torch.eye, torch._sparse_csr_tensor_unsafe, torch.empty, torch._sparse_coo_tensor_unsafe, torch.blackman_window, torch.zeros_like, torch.range, torch.sparse_csr_tensor, torch.randn_like, torch.from_file, torch._cudnn_init_dropout_state, torch._empty_affine_quantized, torch.linspace, torch.hamming_window, torch.empty_quantized, torch._pin_memory, torch.load, torch.set_default_device, torch.get_device_module, torch.sparse_compressed_tensor, torch.Tensor.new_empty, torch.Tensor.new_empty_strided, torch.Tensor.new_full, torch.Tensor.new_ones, torch.Tensor.new_tensor, torch.Tensor.new_zeros, torch.Tensor.to, torch.Tensor.pin_memory, torch.nn.Module.to, torch.nn.Module.to_empty
+    *************************************************************************************************************
+    
+  warnings.warn(msg, ImportWarning)
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:276: RuntimeWarning: torch.jit.script and torch.jit.script_method will be disabled by transfer_to_npu, which currently does not support them, if you need to enable them, please do not use transfer_to_npu.
+  warnings.warn(msg, RuntimeWarning)
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+2026-04-24 18:40:57,119 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 18:40:57,626 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 18:40:57,641 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 18:40:57,648 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 18:40:57,674 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 18:40:57,674 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 18:40:57,743 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 18:40:59,003 [INFO] Device: npu | World size: 8 | Ulysses degree: 8 | VAE parallel: True
+2026-04-24 18:40:59,007 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 18:41:11,477 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 18:41:11,480 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 18:41:11,485 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 18:41:11,492 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 18:41:11,494 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 18:41:11,494 [INFO] Installed sequence-parallel hooks on LTXModel (rank=1, world_size=8)
+2026-04-24 18:41:11,495 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 18:41:12,546 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 18:41:12,549 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 18:41:12,555 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 18:41:12,561 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 18:41:12,563 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 18:41:12,563 [INFO] Installed sequence-parallel hooks on LTXModel (rank=4, world_size=8)
+2026-04-24 18:41:12,563 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 18:41:12,942 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 18:41:12,943 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 18:41:12,947 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 18:41:12,948 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 18:41:12,948 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 18:41:12,949 [INFO] Installed sequence-parallel hooks on LTXModel (rank=0, world_size=8)
+2026-04-24 18:41:12,949 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 18:41:14,665 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 18:41:14,666 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 18:41:14,671 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 18:41:14,672 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 18:41:14,672 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 18:41:14,673 [INFO] Installed sequence-parallel hooks on LTXModel (rank=2, world_size=8)
+2026-04-24 18:41:14,673 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 18:41:15,647 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 18:41:15,647 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 18:41:15,653 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 18:41:15,653 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 18:41:15,654 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 18:41:15,654 [INFO] Installed sequence-parallel hooks on LTXModel (rank=3, world_size=8)
+2026-04-24 18:41:15,654 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 18:41:15,996 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 18:41:15,996 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 18:41:16,001 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 18:41:16,001 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 18:41:16,002 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 18:41:16,002 [INFO] Installed sequence-parallel hooks on LTXModel (rank=6, world_size=8)
+2026-04-24 18:41:16,002 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 18:41:16,080 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 18:41:16,080 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 18:41:16,085 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 18:41:16,086 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 18:41:16,087 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 18:41:16,087 [INFO] Installed sequence-parallel hooks on LTXModel (rank=7, world_size=8)
+2026-04-24 18:41:16,087 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 18:41:16,205 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 18:41:16,205 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 18:41:16,210 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 18:41:16,211 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 18:41:16,211 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 18:41:16,211 [INFO] Installed sequence-parallel hooks on LTXModel (rank=5, world_size=8)
+2026-04-24 18:41:16,211 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 18:41:18,076 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 18:41:18,165 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 18:41:18,178 [INFO] FSDP transformer ready on npu:4
+2026-04-24 18:41:18,181 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 18:41:18,199 [INFO] FSDP transformer ready on npu:0
+2026-04-24 18:41:18,199 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 18:41:20,021 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 18:41:20,051 [INFO] FSDP transformer ready on npu:1
+2026-04-24 18:41:20,057 [INFO] Building Gemma text encoder on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 18:41:22,252 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 18:41:22,288 [INFO] FSDP transformer ready on npu:6
+2026-04-24 18:41:22,289 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 18:41:22,367 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 18:41:22,399 [INFO] FSDP transformer ready on npu:7
+2026-04-24 18:41:22,400 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 18:41:23,272 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 18:41:23,310 [INFO] FSDP transformer ready on npu:3
+2026-04-24 18:41:23,311 [INFO] Building Gemma text encoder on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 18:41:26,556 [INFO] Gemma text encoder resident on npu:0
+2026-04-24 18:41:26,556 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 18:41:26,876 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 18:41:26,911 [INFO] FSDP transformer ready on npu:5
+2026-04-24 18:41:26,912 [INFO] Building Gemma text encoder on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 18:41:27,692 [INFO] Embeddings processor resident on npu:0
+2026-04-24 18:41:27,693 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 18:41:27,891 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 18:41:28,119 [INFO] Spatial upsampler resident on npu:0
+2026-04-24 18:41:28,123 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 18:41:28,389 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:0
+2026-04-24 18:41:28,389 [INFO] Building Resident Audio (Native FP16 handling deferred to audio_vae.py)...
+2026-04-24 18:41:29,276 [INFO] Gemma text encoder resident on npu:4
+2026-04-24 18:41:29,277 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 18:41:29,780 [INFO] Running warmup inference (not timed)...
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:182: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:338.)
+  return fn(*args, **kwargs)
+2026-04-24 18:41:30,459 [INFO] Embeddings processor resident on npu:4
+2026-04-24 18:41:30,459 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 18:41:30,650 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 18:41:30,661 [INFO] Gemma text encoder resident on npu:1
+2026-04-24 18:41:30,661 [INFO] Building embeddings processor on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 18:41:30,848 [INFO] Gemma text encoder resident on npu:6
+2026-04-24 18:41:30,848 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 18:41:30,857 [INFO] Spatial upsampler resident on npu:4
+2026-04-24 18:41:30,860 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 18:41:31,044 [INFO] Gemma text encoder resident on npu:7
+2026-04-24 18:41:31,044 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 18:41:31,134 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:4
+2026-04-24 18:41:31,134 [INFO] Building Resident Audio (Native FP16 handling deferred to audio_vae.py)...
+/usr/local/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py:4876: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  warnings.warn(  # warn only once
+2026-04-24 18:41:31,843 [INFO] Embeddings processor resident on npu:1
+2026-04-24 18:41:31,844 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 18:41:32,022 [INFO] Embeddings processor resident on npu:6
+2026-04-24 18:41:32,022 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 18:41:32,042 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 18:41:32,176 [INFO] Embeddings processor resident on npu:7
+2026-04-24 18:41:32,176 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 18:41:32,185 [INFO] Gemma text encoder resident on npu:3
+2026-04-24 18:41:32,186 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 18:41:32,225 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 18:41:32,266 [INFO] Spatial upsampler resident on npu:1
+2026-04-24 18:41:32,270 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 18:41:32,370 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 18:41:32,450 [INFO] Spatial upsampler resident on npu:6
+2026-04-24 18:41:32,453 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 18:41:32,546 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:1
+2026-04-24 18:41:32,547 [INFO] Building Resident Audio (Native FP16 handling deferred to audio_vae.py)...
+2026-04-24 18:41:32,575 [INFO] Running warmup inference (not timed)...
+2026-04-24 18:41:32,580 [INFO] Spatial upsampler resident on npu:7
+2026-04-24 18:41:32,583 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 18:41:32,715 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:6
+2026-04-24 18:41:32,716 [INFO] Building Resident Audio (Native FP16 handling deferred to audio_vae.py)...
+2026-04-24 18:41:32,830 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:7
+2026-04-24 18:41:32,830 [INFO] Building Resident Audio (Native FP16 handling deferred to audio_vae.py)...
+2026-04-24 18:41:33,290 [INFO] Embeddings processor resident on npu:3
+2026-04-24 18:41:33,290 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 18:41:33,478 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 18:41:33,692 [INFO] Spatial upsampler resident on npu:3
+2026-04-24 18:41:33,694 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 18:41:33,910 [INFO] Running warmup inference (not timed)...
+2026-04-24 18:41:33,949 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:3
+2026-04-24 18:41:33,950 [INFO] Building Resident Audio (Native FP16 handling deferred to audio_vae.py)...
+2026-04-24 18:41:34,102 [INFO] Running warmup inference (not timed)...
+2026-04-24 18:41:34,182 [INFO] Running warmup inference (not timed)...
+2026-04-24 18:41:35,337 [INFO] Running warmup inference (not timed)...
+2026-04-24 18:41:35,725 [INFO] Gemma text encoder resident on npu:5
+2026-04-24 18:41:35,725 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 18:41:36,818 [INFO] Embeddings processor resident on npu:5
+2026-04-24 18:41:36,818 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 18:41:37,002 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 18:41:37,203 [INFO] Spatial upsampler resident on npu:5
+2026-04-24 18:41:37,205 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 18:41:37,447 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:5
+2026-04-24 18:41:37,448 [INFO] Building Resident Audio (Native FP16 handling deferred to audio_vae.py)...
+2026-04-24 18:41:38,800 [INFO] Running warmup inference (not timed)...
+2026-04-24 18:41:52,925 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 18:41:52,956 [INFO] FSDP transformer ready on npu:2
+2026-04-24 18:41:52,964 [INFO] Building Gemma text encoder on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 18:42:01,665 [INFO] Gemma text encoder resident on npu:2
+2026-04-24 18:42:01,666 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 18:42:02,846 [INFO] Embeddings processor resident on npu:2
+2026-04-24 18:42:02,846 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 18:42:03,032 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 18:42:03,242 [INFO] Spatial upsampler resident on npu:2
+2026-04-24 18:42:03,246 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 18:42:03,493 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:2
+2026-04-24 18:42:03,493 [INFO] Building Resident Audio (Native FP16 handling deferred to audio_vae.py)...
+2026-04-24 18:42:04,823 [INFO] Running warmup inference (not timed)...
+  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:02<00:20,  2.97s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.97s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.97s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.97s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.97s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.97s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.97s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.97s/it] 25%|██▌       | 2/8 [00:03<00:09,  1.66s/it] 25%|██▌       | 2/8 [00:03<00:09,  1.66s/it] 25%|██▌       | 2/8 [00:03<00:09,  1.66s/it] 25%|██▌       | 2/8 [00:03<00:09,  1.66s/it] 25%|██▌       | 2/8 [00:03<00:09,  1.66s/it] 25%|██▌       | 2/8 [00:03<00:09,  1.66s/it] 25%|██▌       | 2/8 [00:03<00:09,  1.66s/it] 25%|██▌       | 2/8 [00:03<00:09,  1.66s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.25s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.25s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.25s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.25s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.25s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.25s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.25s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.25s/it] 50%|█████     | 4/8 [00:05<00:04,  1.04s/it] 50%|█████     | 4/8 [00:05<00:04,  1.04s/it] 50%|█████     | 4/8 [00:05<00:04,  1.04s/it] 50%|█████     | 4/8 [00:05<00:04,  1.04s/it] 50%|█████     | 4/8 [00:05<00:04,  1.04s/it] 50%|█████     | 4/8 [00:05<00:04,  1.04s/it] 50%|█████     | 4/8 [00:05<00:04,  1.04s/it] 50%|█████     | 4/8 [00:05<00:04,  1.04s/it] 62%|██████▎   | 5/8 [00:05<00:02,  1.09it/s] 62%|██████▎   | 5/8 [00:05<00:02,  1.09it/s] 62%|██████▎   | 5/8 [00:05<00:02,  1.09it/s] 62%|██████▎   | 5/8 [00:05<00:02,  1.09it/s] 62%|██████▎   | 5/8 [00:05<00:02,  1.09it/s] 62%|██████▎   | 5/8 [00:05<00:02,  1.09it/s] 62%|██████▎   | 5/8 [00:05<00:02,  1.09it/s] 62%|██████▎   | 5/8 [00:05<00:02,  1.09it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.19it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.19it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.19it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.19it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.19it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.19it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.19it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.19it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.27it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.27it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.27it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.27it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.27it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.27it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.27it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.27it/s]100%|██████████| 8/8 [00:07<00:00,  1.33it/s]100%|██████████| 8/8 [00:07<00:00,  1.33it/s]100%|██████████| 8/8 [00:07<00:00,  1.33it/s]100%|██████████| 8/8 [00:07<00:00,  1.33it/s]100%|██████████| 8/8 [00:07<00:00,  1.33it/s]100%|██████████| 8/8 [00:07<00:00,  1.33it/s]100%|██████████| 8/8 [00:07<00:00,  1.33it/s]100%|██████████| 8/8 [00:07<00:00,  1.33it/s]100%|██████████| 8/8 [00:07<00:00,  1.01it/s]100%|██████████| 8/8 [00:07<00:00,  1.01it/s]100%|██████████| 8/8 [00:07<00:00,  1.01it/s]100%|██████████| 8/8 [00:07<00:00,  1.01it/s]
+
+
+
+100%|██████████| 8/8 [00:07<00:00,  1.01it/s]100%|██████████| 8/8 [00:07<00:00,  1.01it/s]
+
+100%|██████████| 8/8 [00:07<00:00,  1.01it/s]
+100%|██████████| 8/8 [00:07<00:00,  1.01it/s]
+2026-04-24 18:42:15,728 [INFO] [DiT Loop] 8 steps in 7.950s (0.994s/step)
+  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:01<00:03,  1.74s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.74s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.74s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.74s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.74s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.74s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.74s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.74s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.64s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.64s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.64s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.64s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.64s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.64s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.64s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.64s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.62s/it]100%|██████████| 3/3 [00:04<00:00,  1.62s/it]
+
+100%|██████████| 3/3 [00:04<00:00,  1.62s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.62s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.62s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.62s/it]100%|██████████| 3/3 [00:04<00:00,  1.62s/it]
+
+100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.62s/it]
+2026-04-24 18:42:20,801 [INFO] [DiT Loop] 3 steps in 4.866s (1.622s/step)
+2026-04-24 18:42:20,803 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:20,803 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:20,803 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:20,803 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:20,803 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:20,803 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:20,803 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:20,805 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+2026-04-24 18:42:27,492 [INFO] Warmup complete.
+2026-04-24 18:42:27,492 [INFO] Warmup complete.
+2026-04-24 18:42:27,492 [INFO] Warmup complete.
+2026-04-24 18:42:27,492 [INFO] Warmup complete.
+2026-04-24 18:42:27,492 [INFO] Warmup complete.
+2026-04-24 18:42:27,492 [INFO] Warmup complete.
+2026-04-24 18:42:27,492 [INFO] Warmup complete.
+2026-04-24 18:42:27,492 [INFO] Warmup complete.
+  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.35it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.35it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.35it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.35it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.35it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.35it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.35it/s] 12%|█▎        | 1/8 [00:00<00:05,  1.34it/s] 25%|██▌       | 2/8 [00:01<00:04,  1.34it/s] 25%|██▌       | 2/8 [00:01<00:04,  1.34it/s] 25%|██▌       | 2/8 [00:01<00:04,  1.34it/s] 25%|██▌       | 2/8 [00:01<00:04,  1.34it/s] 25%|██▌       | 2/8 [00:01<00:04,  1.34it/s] 25%|██▌       | 2/8 [00:01<00:04,  1.34it/s] 25%|██▌       | 2/8 [00:01<00:04,  1.34it/s] 25%|██▌       | 2/8 [00:01<00:04,  1.34it/s] 38%|███▊      | 3/8 [00:02<00:03,  1.36it/s] 38%|███▊      | 3/8 [00:02<00:03,  1.36it/s] 38%|███▊      | 3/8 [00:02<00:03,  1.36it/s] 38%|███▊      | 3/8 [00:02<00:03,  1.36it/s] 38%|███▊      | 3/8 [00:02<00:03,  1.36it/s] 38%|███▊      | 3/8 [00:02<00:03,  1.36it/s] 38%|███▊      | 3/8 [00:02<00:03,  1.36it/s] 38%|███▊      | 3/8 [00:02<00:03,  1.36it/s] 50%|█████     | 4/8 [00:02<00:02,  1.40it/s] 50%|█████     | 4/8 [00:02<00:02,  1.40it/s] 50%|█████     | 4/8 [00:02<00:02,  1.40it/s] 50%|█████     | 4/8 [00:02<00:02,  1.40it/s] 50%|█████     | 4/8 [00:02<00:02,  1.40it/s] 50%|█████     | 4/8 [00:02<00:02,  1.40it/s] 50%|█████     | 4/8 [00:02<00:02,  1.40it/s] 50%|█████     | 4/8 [00:02<00:02,  1.40it/s] 62%|██████▎   | 5/8 [00:03<00:02,  1.42it/s] 62%|██████▎   | 5/8 [00:03<00:02,  1.42it/s] 62%|██████▎   | 5/8 [00:03<00:02,  1.42it/s] 62%|██████▎   | 5/8 [00:03<00:02,  1.42it/s] 62%|██████▎   | 5/8 [00:03<00:02,  1.42it/s] 62%|██████▎   | 5/8 [00:03<00:02,  1.42it/s] 62%|██████▎   | 5/8 [00:03<00:02,  1.42it/s] 62%|██████▎   | 5/8 [00:03<00:02,  1.42it/s] 75%|███████▌  | 6/8 [00:04<00:01,  1.43it/s] 75%|███████▌  | 6/8 [00:04<00:01,  1.43it/s] 75%|███████▌  | 6/8 [00:04<00:01,  1.43it/s] 75%|███████▌  | 6/8 [00:04<00:01,  1.43it/s] 75%|███████▌  | 6/8 [00:04<00:01,  1.43it/s] 75%|███████▌  | 6/8 [00:04<00:01,  1.43it/s] 75%|███████▌  | 6/8 [00:04<00:01,  1.43it/s] 75%|███████▌  | 6/8 [00:04<00:01,  1.43it/s] 88%|████████▊ | 7/8 [00:04<00:00,  1.44it/s] 88%|████████▊ | 7/8 [00:04<00:00,  1.44it/s] 88%|████████▊ | 7/8 [00:04<00:00,  1.44it/s] 88%|████████▊ | 7/8 [00:04<00:00,  1.44it/s] 88%|████████▊ | 7/8 [00:04<00:00,  1.44it/s] 88%|████████▊ | 7/8 [00:04<00:00,  1.44it/s] 88%|████████▊ | 7/8 [00:04<00:00,  1.44it/s] 88%|████████▊ | 7/8 [00:04<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.42it/s]100%|██████████| 8/8 [00:05<00:00,  1.42it/s]100%|██████████| 8/8 [00:05<00:00,  1.44it/s]100%|██████████| 8/8 [00:05<00:00,  1.42it/s]
+100%|██████████| 8/8 [00:05<00:00,  1.42it/s]100%|██████████| 8/8 [00:05<00:00,  1.42it/s]
+
+
+
+100%|██████████| 8/8 [00:05<00:00,  1.42it/s]100%|██████████| 8/8 [00:05<00:00,  1.42it/s]
+
+100%|██████████| 8/8 [00:05<00:00,  1.42it/s]
+2026-04-24 18:42:33,897 [INFO] [DiT Loop] 8 steps in 5.649s (0.706s/step)
+  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:01<00:03,  1.56s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.56s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.56s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.56s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.56s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.56s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.56s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.56s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.56s/it]
+
+
+100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]
+
+100%|██████████| 3/3 [00:04<00:00,  1.56s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.56s/it]100%|██████████| 3/3 [00:04<00:00,  1.56s/it]
+2026-04-24 18:42:38,670 [INFO] [DiT Loop] 3 steps in 4.689s (1.563s/step)
+2026-04-24 18:42:38,671 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:38,671 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:38,671 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:38,671 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:38,671 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:38,671 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:38,671 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 18:42:38,671 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+[LTX-2 NPU Parallel] Performance Report (after warmup)
+┌─────────────────┬──────────┐
+│      Stage      │ Time (s) │
+├─────────────────┼──────────┤
+│ Total Inference │   15.32  │
+│ Total           │   15.32  │
+└─────────────────┴──────────┘
+
+[PipelineProfiler] Detailed Timing Report
+┌───────────────────────────┬────────────┬────────┐
+│         Operation         │  Time (s)  │   %    │
+├───────────────────────────┼────────────┼────────┤
+│ use GemmaTextEncoder      │     0.559  │   3.7  │
+│ use EmbeddingsProcessor   │     0.102  │   0.7  │
+│ use VideoEncoder_Hollow   │     0.000  │   0.0  │
+│ use X0Model               │     5.740  │  37.9  │
+│ use LatentUpsampler       │     0.079  │   0.5  │
+│ use VideoEncoder_Hollow#2 │     0.000  │   0.0  │
+│ use X0Model#2             │     4.690  │  31.0  │
+│ use VideoDecoder          │     3.949  │  26.1  │
+│ use AudioDecoder          │     0.008  │   0.1  │
+├───────────────────────────┼────────────┼────────┤
+│ TOTAL                     │    15.127  │ 100.0  │
+└───────────────────────────┴────────────┴────────┘
+  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:00<00:00,  5.63it/s] 67%|██████▋   | 2/3 [00:00<00:00,  2.47it/s]100%|██████████| 3/3 [00:01<00:00,  1.73it/s]100%|██████████| 3/3 [00:01<00:00,  1.96it/s]
+2026-04-24 18:42:44,897 [INFO] Video saved to /home/zhoulong/LTX-2-feat-ascend/output/8cards_ultimate_performance.mp4
+2026-04-24 18:42:44,903 [INFO] Video saved to /home/zhoulong/LTX-2-feat-ascend/output/8cards_ultimate_performance.mp4

@@ -1,0 +1,745 @@
+W0424 16:35:59.248000 571550 torch/distributed/run.py:803] 
+W0424 16:35:59.248000 571550 torch/distributed/run.py:803] *****************************************
+W0424 16:35:59.248000 571550 torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0424 16:35:59.248000 571550 torch/distributed/run.py:803] *****************************************
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:345: ImportWarning: 
+    *************************************************************************************************************
+    The torch.Tensor.cuda and torch.nn.Module.cuda are replaced with torch.Tensor.npu and torch.nn.Module.npu now..
+    The torch.cuda.DoubleTensor is replaced with torch.npu.FloatTensor cause the double type is not supported now..
+    The backend in torch.distributed.init_process_group set to hccl now..
+    The torch.cuda.* and torch.cuda.amp.* are replaced with torch.npu.* and torch.npu.amp.* now..
+    The device parameters have been replaced with npu in the function below:
+    torch.logspace, torch.randint, torch.hann_window, torch.rand, torch.full_like, torch.ones_like, torch.rand_like, torch.randperm, torch.arange, torch.frombuffer, torch.normal, torch._empty_per_channel_affine_quantized, torch.empty_strided, torch.empty_like, torch.scalar_tensor, torch.tril_indices, torch.bartlett_window, torch.ones, torch.sparse_coo_tensor, torch.randn, torch.kaiser_window, torch.tensor, torch.triu_indices, torch.as_tensor, torch.zeros, torch.randint_like, torch.full, torch.eye, torch._sparse_csr_tensor_unsafe, torch.empty, torch._sparse_coo_tensor_unsafe, torch.blackman_window, torch.zeros_like, torch.range, torch.sparse_csr_tensor, torch.randn_like, torch.from_file, torch._cudnn_init_dropout_state, torch._empty_affine_quantized, torch.linspace, torch.hamming_window, torch.empty_quantized, torch._pin_memory, torch.load, torch.set_default_device, torch.get_device_module, torch.sparse_compressed_tensor, torch.Tensor.new_empty, torch.Tensor.new_empty_strided, torch.Tensor.new_full, torch.Tensor.new_ones, torch.Tensor.new_tensor, torch.Tensor.new_zeros, torch.Tensor.to, torch.Tensor.pin_memory, torch.nn.Module.to, torch.nn.Module.to_empty
+    *************************************************************************************************************
+    
+  warnings.warn(msg, ImportWarning)
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:276: RuntimeWarning: torch.jit.script and torch.jit.script_method will be disabled by transfer_to_npu, which currently does not support them, if you need to enable them, please do not use transfer_to_npu.
+  warnings.warn(msg, RuntimeWarning)
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+2026-04-24 16:36:10,961 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:36:10,963 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:36:11,266 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:36:11,272 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:36:11,301 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:36:11,305 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:36:11,925 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:36:12,316 [INFO] Device: npu | World size: 8 | Ulysses degree: 8 | VAE parallel: True
+2026-04-24 16:36:12,320 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:36:26,276 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:36:26,279 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:36:26,285 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:36:26,290 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:36:26,292 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:36:26,292 [INFO] Installed sequence-parallel hooks on LTXModel (rank=4, world_size=8)
+2026-04-24 16:36:26,292 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:36:26,444 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:36:26,444 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:36:26,449 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:36:26,449 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:36:26,450 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:36:26,450 [INFO] Installed sequence-parallel hooks on LTXModel (rank=2, world_size=8)
+2026-04-24 16:36:26,450 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:36:26,506 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:36:26,507 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:36:26,512 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:36:26,513 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:36:26,514 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:36:26,514 [INFO] Installed sequence-parallel hooks on LTXModel (rank=0, world_size=8)
+2026-04-24 16:36:26,514 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:36:27,710 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:36:27,711 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:36:27,716 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:36:27,717 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:36:27,718 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:36:27,718 [INFO] Installed sequence-parallel hooks on LTXModel (rank=1, world_size=8)
+2026-04-24 16:36:27,718 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:36:28,308 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:36:28,309 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:36:28,314 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:36:28,315 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:36:28,315 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:36:28,315 [INFO] Installed sequence-parallel hooks on LTXModel (rank=3, world_size=8)
+2026-04-24 16:36:28,316 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:36:29,097 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:36:29,097 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:36:29,104 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:36:29,104 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:36:29,105 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:36:29,105 [INFO] Installed sequence-parallel hooks on LTXModel (rank=5, world_size=8)
+2026-04-24 16:36:29,105 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:36:29,586 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:36:29,587 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:36:29,592 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:36:29,593 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:36:29,593 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:36:29,594 [INFO] Installed sequence-parallel hooks on LTXModel (rank=6, world_size=8)
+2026-04-24 16:36:29,594 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:36:29,911 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:36:29,912 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:36:29,918 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:36:29,918 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:36:29,919 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:36:29,919 [INFO] Installed sequence-parallel hooks on LTXModel (rank=7, world_size=8)
+2026-04-24 16:36:29,919 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:36:33,911 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:36:33,942 [INFO] FSDP transformer ready on npu:2
+2026-04-24 16:36:33,943 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:36:35,950 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:36:35,982 [INFO] FSDP transformer ready on npu:4
+2026-04-24 16:36:35,988 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:36:36,623 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:36:36,654 [INFO] FSDP transformer ready on npu:1
+2026-04-24 16:36:36,655 [INFO] Building Gemma text encoder on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:36:38,864 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:36:38,903 [INFO] FSDP transformer ready on npu:6
+2026-04-24 16:36:38,904 [INFO] Building Gemma text encoder on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:36:42,533 [INFO] Gemma text encoder resident on npu:2
+2026-04-24 16:36:42,533 [INFO] Building embeddings processor on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:36:43,619 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:36:43,648 [INFO] FSDP transformer ready on npu:0
+2026-04-24 16:36:43,649 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:36:43,740 [INFO] Embeddings processor resident on npu:2
+2026-04-24 16:36:43,740 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:36:43,935 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:36:44,151 [INFO] Spatial upsampler resident on npu:2
+2026-04-24 16:36:44,157 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:36:44,412 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:2
+2026-04-24 16:36:44,412 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:36:44,412 [INFO] Building audio decoder/vocoder on device (resident FP16 mode)...
+2026-04-24 16:36:45,189 [INFO] Gemma text encoder resident on npu:1
+2026-04-24 16:36:45,189 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:36:45,813 [INFO] Resident audio FP16 mode installed.
+2026-04-24 16:36:45,813 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:36:46,255 [INFO] Embeddings processor resident on npu:1
+2026-04-24 16:36:46,256 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:36:46,446 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:36:46,460 [INFO] Gemma text encoder resident on npu:4
+2026-04-24 16:36:46,460 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:36:46,648 [INFO] Spatial upsampler resident on npu:1
+2026-04-24 16:36:46,651 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:36:46,892 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:1
+2026-04-24 16:36:46,892 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:36:46,892 [INFO] Building audio decoder/vocoder on device (resident FP16 mode)...
+2026-04-24 16:36:47,223 [INFO] Gemma text encoder resident on npu:6
+2026-04-24 16:36:47,223 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:36:47,585 [INFO] Embeddings processor resident on npu:4
+2026-04-24 16:36:47,585 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:36:47,765 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:36:47,892 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:36:47,925 [INFO] FSDP transformer ready on npu:3
+2026-04-24 16:36:47,934 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:36:47,964 [INFO] Spatial upsampler resident on npu:4
+2026-04-24 16:36:47,967 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:36:48,195 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:4
+2026-04-24 16:36:48,195 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:36:48,195 [INFO] Building audio decoder/vocoder on device (resident FP16 mode)...
+2026-04-24 16:36:48,288 [INFO] Embeddings processor resident on npu:6
+2026-04-24 16:36:48,288 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:36:48,327 [INFO] Resident audio FP16 mode installed.
+2026-04-24 16:36:48,327 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:36:48,463 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:36:48,663 [INFO] Spatial upsampler resident on npu:6
+2026-04-24 16:36:48,666 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:36:48,906 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:6
+2026-04-24 16:36:48,907 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:36:48,907 [INFO] Building audio decoder/vocoder on device (resident FP16 mode)...
+2026-04-24 16:36:49,560 [INFO] Resident audio FP16 mode installed.
+2026-04-24 16:36:49,560 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:36:50,374 [INFO] Resident audio FP16 mode installed.
+2026-04-24 16:36:50,375 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:36:51,810 [INFO] Gemma text encoder resident on npu:0
+2026-04-24 16:36:51,810 [INFO] Building embeddings processor on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:36:52,766 [INFO] Embeddings processor resident on npu:0
+2026-04-24 16:36:52,766 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:36:52,924 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:36:53,092 [INFO] Spatial upsampler resident on npu:0
+2026-04-24 16:36:53,097 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:36:53,313 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:0
+2026-04-24 16:36:53,313 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:36:53,313 [INFO] Building audio decoder/vocoder on device (resident FP16 mode)...
+2026-04-24 16:36:54,757 [INFO] Resident audio FP16 mode installed.
+2026-04-24 16:36:54,758 [INFO] Running warmup inference (not timed)...
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:182: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:338.)
+  return fn(*args, **kwargs)
+/usr/local/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py:4876: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  warnings.warn(  # warn only once
+2026-04-24 16:36:57,304 [INFO] Gemma text encoder resident on npu:3
+2026-04-24 16:36:57,305 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:36:58,442 [INFO] Embeddings processor resident on npu:3
+2026-04-24 16:36:58,442 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:36:58,634 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:36:58,849 [INFO] Spatial upsampler resident on npu:3
+2026-04-24 16:36:58,852 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:36:59,104 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:3
+2026-04-24 16:36:59,104 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:36:59,104 [INFO] Building audio decoder/vocoder on device (resident FP16 mode)...
+2026-04-24 16:37:00,517 [INFO] Resident audio FP16 mode installed.
+2026-04-24 16:37:00,517 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:37:08,094 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:37:08,128 [INFO] FSDP transformer ready on npu:5
+2026-04-24 16:37:08,135 [INFO] Building Gemma text encoder on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:37:13,578 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:37:13,608 [INFO] FSDP transformer ready on npu:7
+2026-04-24 16:37:13,614 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:37:17,294 [INFO] Gemma text encoder resident on npu:5
+2026-04-24 16:37:17,295 [INFO] Building embeddings processor on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:37:18,480 [INFO] Embeddings processor resident on npu:5
+2026-04-24 16:37:18,480 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:37:18,689 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:37:18,876 [INFO] Spatial upsampler resident on npu:5
+2026-04-24 16:37:18,885 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:37:19,133 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:5
+2026-04-24 16:37:19,133 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:37:19,133 [INFO] Building audio decoder/vocoder on device (resident FP16 mode)...
+2026-04-24 16:37:20,678 [INFO] Resident audio FP16 mode installed.
+2026-04-24 16:37:20,679 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:37:22,029 [INFO] Gemma text encoder resident on npu:7
+2026-04-24 16:37:22,029 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:37:23,105 [INFO] Embeddings processor resident on npu:7
+2026-04-24 16:37:23,106 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:37:23,275 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:37:23,451 [INFO] Spatial upsampler resident on npu:7
+2026-04-24 16:37:23,458 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:37:23,695 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:7
+2026-04-24 16:37:23,696 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:37:23,696 [INFO] Building audio decoder/vocoder on device (resident FP16 mode)...
+2026-04-24 16:37:25,119 [INFO] Resident audio FP16 mode installed.
+2026-04-24 16:37:25,119 [INFO] Running warmup inference (not timed)...
+  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:02<00:20,  2.98s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.98s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.98s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.98s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.98s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.98s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.98s/it] 12%|█▎        | 1/8 [00:02<00:20,  2.98s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.67s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.67s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.67s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.67s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.67s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.67s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.67s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.67s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.27s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.27s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.27s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.27s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.27s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.27s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 50%|█████     | 4/8 [00:05<00:04,  1.08s/it] 50%|█████     | 4/8 [00:05<00:04,  1.08s/it] 50%|█████     | 4/8 [00:05<00:04,  1.08s/it] 50%|█████     | 4/8 [00:05<00:04,  1.08s/it] 50%|█████     | 4/8 [00:05<00:04,  1.08s/it] 50%|█████     | 4/8 [00:05<00:04,  1.08s/it] 50%|█████     | 4/8 [00:05<00:04,  1.08s/it] 50%|█████     | 4/8 [00:05<00:04,  1.08s/it] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.02it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.08it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.08it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.08it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.08it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.08it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.08it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.08it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.08it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.13it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.13it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.13it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.13it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.13it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.13it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.13it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.13it/s]100%|██████████| 8/8 [00:08<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.07s/it]100%|██████████| 8/8 [00:08<00:00,  1.07s/it]
+
+100%|██████████| 8/8 [00:08<00:00,  1.07s/it]100%|██████████| 8/8 [00:08<00:00,  1.07s/it]
+
+100%|██████████| 8/8 [00:08<00:00,  1.07s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.07s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.07s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.07s/it]
+2026-04-24 16:37:36,603 [INFO] [DiT Loop] 8 steps in 8.546s (1.068s/step)
+  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:01<00:03,  1.72s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.72s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.72s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.72s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.72s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.72s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.72s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.72s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.63s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.63s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.63s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.63s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.63s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.63s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.63s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.63s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.61s/it]100%|██████████| 3/3 [00:04<00:00,  1.61s/it]
+
+100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.61s/it]100%|██████████| 3/3 [00:04<00:00,  1.61s/it]
+
+100%|██████████| 3/3 [00:04<00:00,  1.61s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.61s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.61s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.61s/it]
+2026-04-24 16:37:41,620 [INFO] [DiT Loop] 3 steps in 4.838s (1.613s/step)
+2026-04-24 16:37:41,621 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:37:41,621 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:37:41,621 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:37:41,621 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:37:41,622 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:37:41,622 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:37:41,622 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:37:41,622 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank1]:     main()
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank1]:     return func(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank1]:     result = pipeline.run_with_timing(
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 805, in run_with_timing
+[rank1]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank1]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank1]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 678, in __call__
+[rank1]:     waveform = wrapped_voc(decoded_audio).squeeze(0).float()
+[rank1]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 656, in __call__
+[rank1]:     return self.mod(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 576, in forward
+[rank1]:     x = self.vocoder(mel_spec.float())
+[rank1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 392, in forward
+[rank1]:     x = self.conv_pre(x)
+[rank1]:         ^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank1]:     return self._conv_forward(input, self.weight, self.bias)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank1]:     return F.conv1d(
+[rank1]:            ^^^^^^^^^
+[rank1]: RuntimeError: Input type (float) and bias type (c10::Half) should be the same
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank3]:     main()
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank3]:     return func(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank3]:     result = pipeline.run_with_timing(
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 805, in run_with_timing
+[rank3]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank3]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank3]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 678, in __call__
+[rank3]:     waveform = wrapped_voc(decoded_audio).squeeze(0).float()
+[rank3]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 656, in __call__
+[rank3]:     return self.mod(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 576, in forward
+[rank3]:     x = self.vocoder(mel_spec.float())
+[rank3]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 392, in forward
+[rank3]:     x = self.conv_pre(x)
+[rank3]:         ^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank3]:     return self._conv_forward(input, self.weight, self.bias)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank3]:     return F.conv1d(
+[rank3]:            ^^^^^^^^^
+[rank3]: RuntimeError: Input type (float) and bias type (c10::Half) should be the same
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank2]:     main()
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank2]:     return func(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank2]:     result = pipeline.run_with_timing(
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 805, in run_with_timing
+[rank2]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank2]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank2]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 678, in __call__
+[rank2]:     waveform = wrapped_voc(decoded_audio).squeeze(0).float()
+[rank2]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 656, in __call__
+[rank2]:     return self.mod(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 576, in forward
+[rank2]:     x = self.vocoder(mel_spec.float())
+[rank2]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 392, in forward
+[rank2]:     x = self.conv_pre(x)
+[rank2]:         ^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank2]:     return self._conv_forward(input, self.weight, self.bias)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank2]:     return F.conv1d(
+[rank2]:            ^^^^^^^^^
+[rank2]: RuntimeError: Input type (float) and bias type (c10::Half) should be the same
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank6]:     main()
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank6]:     return func(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank6]:     result = pipeline.run_with_timing(
+[rank6]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 805, in run_with_timing
+[rank6]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank6]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank6]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank6]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 678, in __call__
+[rank6]:     waveform = wrapped_voc(decoded_audio).squeeze(0).float()
+[rank6]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 656, in __call__
+[rank6]:     return self.mod(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 576, in forward
+[rank6]:     x = self.vocoder(mel_spec.float())
+[rank6]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 392, in forward
+[rank6]:     x = self.conv_pre(x)
+[rank6]:         ^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank6]:     return self._conv_forward(input, self.weight, self.bias)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank6]:     return F.conv1d(
+[rank6]:            ^^^^^^^^^
+[rank6]: RuntimeError: Input type (float) and bias type (c10::Half) should be the same
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank4]:     main()
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank4]:     return func(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank4]:     result = pipeline.run_with_timing(
+[rank4]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 805, in run_with_timing
+[rank4]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank4]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank4]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank4]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 678, in __call__
+[rank4]:     waveform = wrapped_voc(decoded_audio).squeeze(0).float()
+[rank4]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 656, in __call__
+[rank4]:     return self.mod(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 576, in forward
+[rank4]:     x = self.vocoder(mel_spec.float())
+[rank4]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 392, in forward
+[rank4]:     x = self.conv_pre(x)
+[rank4]:         ^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank4]:     return self._conv_forward(input, self.weight, self.bias)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank4]:     return F.conv1d(
+[rank4]:            ^^^^^^^^^
+[rank4]: RuntimeError: Input type (float) and bias type (c10::Half) should be the same
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank5]:     main()
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank5]:     return func(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank5]:     result = pipeline.run_with_timing(
+[rank5]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 805, in run_with_timing
+[rank5]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank5]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank5]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank5]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 678, in __call__
+[rank5]:     waveform = wrapped_voc(decoded_audio).squeeze(0).float()
+[rank5]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 656, in __call__
+[rank5]:     return self.mod(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 576, in forward
+[rank5]:     x = self.vocoder(mel_spec.float())
+[rank5]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 392, in forward
+[rank5]:     x = self.conv_pre(x)
+[rank5]:         ^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank5]:     return self._conv_forward(input, self.weight, self.bias)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank5]:     return F.conv1d(
+[rank5]:            ^^^^^^^^^
+[rank5]: RuntimeError: Input type (float) and bias type (c10::Half) should be the same
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank0]:     main()
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank0]:     result = pipeline.run_with_timing(
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 805, in run_with_timing
+[rank0]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank0]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank0]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank0]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 678, in __call__
+[rank0]:     waveform = wrapped_voc(decoded_audio).squeeze(0).float()
+[rank0]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 656, in __call__
+[rank0]:     return self.mod(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 576, in forward
+[rank0]:     x = self.vocoder(mel_spec.float())
+[rank0]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 392, in forward
+[rank0]:     x = self.conv_pre(x)
+[rank0]:         ^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank0]:     return self._call_impl(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank0]:     return forward_call(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank0]:     return self._conv_forward(input, self.weight, self.bias)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank0]:     return F.conv1d(
+[rank0]:            ^^^^^^^^^
+[rank0]: RuntimeError: Input type (float) and bias type (c10::Half) should be the same
+/usr/local/lib/python3.11/site-packages/torch/amp/autocast_mode.py:332: UserWarning: In npu autocast, but the target dtype torch.float32 is not supported. Disabling autocast.
+ npu Autocast only supports dtypes of torch.float16, torch.bfloat16 currently.
+  warnings.warn(error_message)
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank7]:     main()
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank7]:     return func(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank7]:     result = pipeline.run_with_timing(
+[rank7]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 805, in run_with_timing
+[rank7]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank7]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank7]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank7]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 678, in __call__
+[rank7]:     waveform = wrapped_voc(decoded_audio).squeeze(0).float()
+[rank7]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 656, in __call__
+[rank7]:     return self.mod(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 576, in forward
+[rank7]:     x = self.vocoder(mel_spec.float())
+[rank7]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 392, in forward
+[rank7]:     x = self.conv_pre(x)
+[rank7]:         ^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank7]:     return self._call_impl(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank7]:     return forward_call(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank7]:     return self._conv_forward(input, self.weight, self.bias)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank7]:     return F.conv1d(
+[rank7]:            ^^^^^^^^^
+[rank7]: RuntimeError: Input type (float) and bias type (c10::Half) should be the same
+[ERROR] 2026-04-24-16:37:51 (PID:571620, Device:1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-24-16:37:51 (PID:571622, Device:3, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-24-16:37:51 (PID:571625, Device:6, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-24-16:37:52 (PID:571624, Device:5, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-24-16:37:52 (PID:571626, Device:7, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-24-16:37:52 (PID:571623, Device:4, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-24-16:37:52 (PID:571621, Device:2, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-24-16:37:52 (PID:571619, Device:0, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+W0424 16:37:56.453000 571550 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 571619 closing signal SIGTERM
+W0424 16:37:56.453000 571550 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 571620 closing signal SIGTERM
+W0424 16:37:56.457000 571550 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 571621 closing signal SIGTERM
+W0424 16:37:56.464000 571550 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 571622 closing signal SIGTERM
+W0424 16:37:56.468000 571550 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 571623 closing signal SIGTERM
+W0424 16:37:56.468000 571550 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 571624 closing signal SIGTERM
+W0424 16:37:56.469000 571550 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 571626 closing signal SIGTERM
+E0424 16:37:58.314000 571550 torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 6 (pid: 571625) of binary: /usr/local/bin/python3.11
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+run_distilled.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-24_16:37:56
+  host      : hostname-xxi4w.foreman.pxe
+  rank      : 6 (local_rank: 6)
+  exitcode  : 1 (pid: 571625)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[ERROR] 2026-04-24-16:37:58 (PID:571550, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

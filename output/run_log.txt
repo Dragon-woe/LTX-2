@@ -1,0 +1,171 @@
+W0425 15:40:33.580000 754648 site-packages/torch/distributed/run.py:803] 
+W0425 15:40:33.580000 754648 site-packages/torch/distributed/run.py:803] *****************************************
+W0425 15:40:33.580000 754648 site-packages/torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0425 15:40:33.580000 754648 site-packages/torch/distributed/run.py:803] *****************************************
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:345: ImportWarning: 
+    *************************************************************************************************************
+    The torch.Tensor.cuda and torch.nn.Module.cuda are replaced with torch.Tensor.npu and torch.nn.Module.npu now..
+    The torch.cuda.DoubleTensor is replaced with torch.npu.FloatTensor cause the double type is not supported now..
+    The backend in torch.distributed.init_process_group set to hccl now..
+    The torch.cuda.* and torch.cuda.amp.* are replaced with torch.npu.* and torch.npu.amp.* now..
+    The device parameters have been replaced with npu in the function below:
+    torch.logspace, torch.randint, torch.hann_window, torch.rand, torch.full_like, torch.ones_like, torch.rand_like, torch.randperm, torch.arange, torch.frombuffer, torch.normal, torch._empty_per_channel_affine_quantized, torch.empty_strided, torch.empty_like, torch.scalar_tensor, torch.tril_indices, torch.bartlett_window, torch.ones, torch.sparse_coo_tensor, torch.randn, torch.kaiser_window, torch.tensor, torch.triu_indices, torch.as_tensor, torch.zeros, torch.randint_like, torch.full, torch.eye, torch._sparse_csr_tensor_unsafe, torch.empty, torch._sparse_coo_tensor_unsafe, torch.blackman_window, torch.zeros_like, torch.range, torch.sparse_csr_tensor, torch.randn_like, torch.from_file, torch._cudnn_init_dropout_state, torch._empty_affine_quantized, torch.linspace, torch.hamming_window, torch.empty_quantized, torch._pin_memory, torch.load, torch.set_default_device, torch.get_device_module, torch.sparse_compressed_tensor, torch.Tensor.new_empty, torch.Tensor.new_empty_strided, torch.Tensor.new_full, torch.Tensor.new_ones, torch.Tensor.new_tensor, torch.Tensor.new_zeros, torch.Tensor.to, torch.Tensor.pin_memory, torch.nn.Module.to, torch.nn.Module.to_empty
+    *************************************************************************************************************
+    
+  warnings.warn(msg, ImportWarning)
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:276: RuntimeWarning: torch.jit.script and torch.jit.script_method will be disabled by transfer_to_npu, which currently does not support them, if you need to enable them, please do not use transfer_to_npu.
+  warnings.warn(msg, RuntimeWarning)
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 210, in <module>
+[rank4]:     main()
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank4]:     return func(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 167, in main
+[rank4]:     from ltx_npu.pipeline_wrapper import ParallelDistilledPipeline
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 39
+[rank4]:     import logging, time, torch
+[rank4]: IndentationError: unexpected indent
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 210, in <module>
+[rank1]:     main()
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank1]:     return func(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 167, in main
+[rank1]:     from ltx_npu.pipeline_wrapper import ParallelDistilledPipeline
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 39
+[rank1]:     import logging, time, torch
+[rank1]: IndentationError: unexpected indent
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 210, in <module>
+[rank7]:     main()
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank7]:     return func(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 167, in main
+[rank7]:     from ltx_npu.pipeline_wrapper import ParallelDistilledPipeline
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 39
+[rank7]:     import logging, time, torch
+[rank7]: IndentationError: unexpected indent
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 210, in <module>
+[rank6]:     main()
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank6]:     return func(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 167, in main
+[rank6]:     from ltx_npu.pipeline_wrapper import ParallelDistilledPipeline
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 39
+[rank6]:     import logging, time, torch
+[rank6]: IndentationError: unexpected indent
+2026-04-25 15:40:45,257 [INFO] Device: npu | World size: 8 | Ulysses degree: 8 | VAE parallel: True
+[rank0]: Traceback (most recent call last):
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 210, in <module>
+[rank0]:     main()
+[rank0]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank0]:     return func(*args, **kwargs)
+[rank0]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 167, in main
+[rank0]:     from ltx_npu.pipeline_wrapper import ParallelDistilledPipeline
+[rank0]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 39
+[rank0]:     import logging, time, torch
+[rank0]: IndentationError: unexpected indent
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 210, in <module>
+[rank2]:     main()
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank2]:     return func(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 167, in main
+[rank2]:     from ltx_npu.pipeline_wrapper import ParallelDistilledPipeline
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 39
+[rank2]:     import logging, time, torch
+[rank2]: IndentationError: unexpected indent
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 210, in <module>
+[rank5]:     main()
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank5]:     return func(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 167, in main
+[rank5]:     from ltx_npu.pipeline_wrapper import ParallelDistilledPipeline
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 39
+[rank5]:     import logging, time, torch
+[rank5]: IndentationError: unexpected indent
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 210, in <module>
+[rank3]:     main()
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank3]:     return func(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 167, in main
+[rank3]:     from ltx_npu.pipeline_wrapper import ParallelDistilledPipeline
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 39
+[rank3]:     import logging, time, torch
+[rank3]: IndentationError: unexpected indent
+[ERROR] 2026-04-25-15:40:45 (PID:754724, Device:7, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-25-15:40:46 (PID:754717, Device:0, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-25-15:40:46 (PID:754721, Device:4, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-25-15:40:46 (PID:754718, Device:1, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-25-15:40:46 (PID:754723, Device:6, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-25-15:40:46 (PID:754719, Device:2, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-25-15:40:47 (PID:754722, Device:5, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+[ERROR] 2026-04-25-15:40:47 (PID:754720, Device:3, RankID:-1) ERR99999 UNKNOWN applicaiton exception
+W0425 15:40:48.171000 754648 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 754717 closing signal SIGTERM
+W0425 15:40:48.172000 754648 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 754718 closing signal SIGTERM
+W0425 15:40:48.172000 754648 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 754719 closing signal SIGTERM
+W0425 15:40:48.172000 754648 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 754720 closing signal SIGTERM
+W0425 15:40:48.173000 754648 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 754722 closing signal SIGTERM
+W0425 15:40:48.173000 754648 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 754723 closing signal SIGTERM
+W0425 15:40:48.173000 754648 site-packages/torch/distributed/elastic/multiprocessing/api.py:908] Sending process 754724 closing signal SIGTERM
+E0425 15:40:48.774000 754648 site-packages/torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 4 (pid: 754721) of binary: /usr/local/bin/python3.11
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+run_distilled.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-25_15:40:48
+  host      : hostname-xxi4w.foreman.pxe
+  rank      : 4 (local_rank: 4)
+  exitcode  : 1 (pid: 754721)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[ERROR] 2026-04-25-15:40:49 (PID:754648, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

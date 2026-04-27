@@ -1,0 +1,916 @@
+W0424 16:49:20.945000 582069 torch/distributed/run.py:803] 
+W0424 16:49:20.945000 582069 torch/distributed/run.py:803] *****************************************
+W0424 16:49:20.945000 582069 torch/distributed/run.py:803] Setting OMP_NUM_THREADS environment variable for each process to be 1 in default, to avoid your system being overloaded, please further tune the variable for optimal performance in your application as needed. 
+W0424 16:49:20.945000 582069 torch/distributed/run.py:803] *****************************************
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:345: ImportWarning: 
+    *************************************************************************************************************
+    The torch.Tensor.cuda and torch.nn.Module.cuda are replaced with torch.Tensor.npu and torch.nn.Module.npu now..
+    The torch.cuda.DoubleTensor is replaced with torch.npu.FloatTensor cause the double type is not supported now..
+    The backend in torch.distributed.init_process_group set to hccl now..
+    The torch.cuda.* and torch.cuda.amp.* are replaced with torch.npu.* and torch.npu.amp.* now..
+    The device parameters have been replaced with npu in the function below:
+    torch.logspace, torch.randint, torch.hann_window, torch.rand, torch.full_like, torch.ones_like, torch.rand_like, torch.randperm, torch.arange, torch.frombuffer, torch.normal, torch._empty_per_channel_affine_quantized, torch.empty_strided, torch.empty_like, torch.scalar_tensor, torch.tril_indices, torch.bartlett_window, torch.ones, torch.sparse_coo_tensor, torch.randn, torch.kaiser_window, torch.tensor, torch.triu_indices, torch.as_tensor, torch.zeros, torch.randint_like, torch.full, torch.eye, torch._sparse_csr_tensor_unsafe, torch.empty, torch._sparse_coo_tensor_unsafe, torch.blackman_window, torch.zeros_like, torch.range, torch.sparse_csr_tensor, torch.randn_like, torch.from_file, torch._cudnn_init_dropout_state, torch._empty_affine_quantized, torch.linspace, torch.hamming_window, torch.empty_quantized, torch._pin_memory, torch.load, torch.set_default_device, torch.get_device_module, torch.sparse_compressed_tensor, torch.Tensor.new_empty, torch.Tensor.new_empty_strided, torch.Tensor.new_full, torch.Tensor.new_ones, torch.Tensor.new_tensor, torch.Tensor.new_zeros, torch.Tensor.to, torch.Tensor.pin_memory, torch.nn.Module.to, torch.nn.Module.to_empty
+    *************************************************************************************************************
+    
+  warnings.warn(msg, ImportWarning)
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:276: RuntimeWarning: torch.jit.script and torch.jit.script_method will be disabled by transfer_to_npu, which currently does not support them, if you need to enable them, please do not use transfer_to_npu.
+  warnings.warn(msg, RuntimeWarning)
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+/usr/local/lib/python3.11/site-packages/torchvision/io/image.py:13: UserWarning: Failed to load image Python extension: 'Could not load this library: /usr/local/lib/python3.11/site-packages/torchvision/image.so'If you don't plan on using image functionality from `torchvision.io`, you can ignore this warning. Otherwise, there might be something wrong with your environment. Did you have `libjpeg` or `libpng` installed before building `torchvision` from source?
+  warn(
+2026-04-24 16:49:32,470 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:49:32,729 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:49:32,732 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:49:32,739 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:49:32,928 [INFO] Device: npu | World size: 8 | Ulysses degree: 8 | VAE parallel: True
+2026-04-24 16:49:32,932 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:49:33,091 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:49:33,300 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:49:33,637 [INFO] Building transformer on CPU for FSDP sharding...
+2026-04-24 16:49:47,581 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:49:47,583 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:49:47,588 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:49:47,593 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:49:47,595 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:49:47,595 [INFO] Installed sequence-parallel hooks on LTXModel (rank=0, world_size=8)
+2026-04-24 16:49:47,595 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:49:47,877 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:49:47,879 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:49:47,884 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:49:47,889 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:49:47,890 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:49:47,891 [INFO] Installed sequence-parallel hooks on LTXModel (rank=5, world_size=8)
+2026-04-24 16:49:47,891 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:49:47,946 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:49:47,948 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:49:47,953 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:49:47,957 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:49:47,959 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:49:47,959 [INFO] Installed sequence-parallel hooks on LTXModel (rank=3, world_size=8)
+2026-04-24 16:49:47,960 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:49:48,316 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:49:48,316 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:49:48,322 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:49:48,323 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:49:48,324 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:49:48,324 [INFO] Installed sequence-parallel hooks on LTXModel (rank=6, world_size=8)
+2026-04-24 16:49:48,324 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:49:48,374 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:49:48,374 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:49:48,379 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:49:48,380 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:49:48,380 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:49:48,380 [INFO] Installed sequence-parallel hooks on LTXModel (rank=1, world_size=8)
+2026-04-24 16:49:48,380 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:49:48,977 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:49:48,978 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:49:48,982 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:49:48,983 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:49:48,984 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:49:48,984 [INFO] Installed sequence-parallel hooks on LTXModel (rank=4, world_size=8)
+2026-04-24 16:49:48,984 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:49:49,477 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:49:49,477 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:49:49,482 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:49:49,483 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:49:49,484 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:49:49,484 [INFO] Installed sequence-parallel hooks on LTXModel (rank=2, world_size=8)
+2026-04-24 16:49:49,484 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:49:51,231 [INFO] Injected NPUAttention (ALGO=1) into 192 attention modules
+2026-04-24 16:49:51,234 [INFO] Injected NPUAttention (ALGO=1) into 192 modules
+2026-04-24 16:49:51,241 [INFO] Patched 0 LayerNorm modules with mindiesd.fast_layernorm
+2026-04-24 16:49:51,247 [INFO] Patched 0 LayerNorm modules with fast_layernorm
+2026-04-24 16:49:51,249 [INFO] inject_ulysses_attention: injected 48 / 48 blocks
+2026-04-24 16:49:51,249 [INFO] Installed sequence-parallel hooks on LTXModel (rank=7, world_size=8)
+2026-04-24 16:49:51,249 [INFO] Installed e2e sequence parallel (degree=8) before FSDP wrap
+2026-04-24 16:49:54,017 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:49:54,084 [INFO] FSDP transformer ready on npu:6
+2026-04-24 16:49:54,086 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:49:54,678 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:49:54,711 [INFO] FSDP transformer ready on npu:3
+2026-04-24 16:49:54,714 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:49:55,201 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:49:55,250 [INFO] FSDP transformer ready on npu:1
+2026-04-24 16:49:55,251 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:49:55,477 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:49:55,521 [INFO] FSDP transformer ready on npu:0
+2026-04-24 16:49:55,526 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:49:56,781 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:49:56,813 [INFO] FSDP transformer ready on npu:2
+2026-04-24 16:49:56,814 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:49:57,390 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:49:57,423 [INFO] FSDP transformer ready on npu:4
+2026-04-24 16:49:57,424 [INFO] Building Gemma text encoder on device (resident mode)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:50:02,189 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:50:02,226 [INFO] FSDP transformer ready on npu:5
+2026-04-24 16:50:02,234 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:50:02,639 [INFO] Gemma text encoder resident on npu:6
+2026-04-24 16:50:02,640 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:50:03,707 [INFO] Embeddings processor resident on npu:6
+2026-04-24 16:50:03,707 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:50:03,894 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:50:03,911 [INFO] Gemma text encoder resident on npu:1
+2026-04-24 16:50:03,912 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:50:04,099 [INFO] Spatial upsampler resident on npu:6
+2026-04-24 16:50:04,102 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:50:04,338 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:6
+2026-04-24 16:50:04,338 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:50:04,338 [INFO] Building audio decoder/vocoder on device (resident audio dtype=torch.float32, no mel_spec.float)...
+2026-04-24 16:50:04,975 [INFO] Embeddings processor resident on npu:1
+2026-04-24 16:50:04,976 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:50:05,030 [INFO] Gemma text encoder resident on npu:3
+2026-04-24 16:50:05,030 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:50:05,163 [INFO] Gemma text encoder resident on npu:0
+2026-04-24 16:50:05,164 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:50:05,167 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:50:05,382 [INFO] Spatial upsampler resident on npu:1
+2026-04-24 16:50:05,385 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:50:05,494 [INFO] Gemma text encoder resident on npu:2
+2026-04-24 16:50:05,494 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:50:05,638 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:1
+2026-04-24 16:50:05,638 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:50:05,638 [INFO] Building audio decoder/vocoder on device (resident audio dtype=torch.float32, no mel_spec.float)...
+2026-04-24 16:50:05,780 [INFO] Resident audio mode installed; dtype=torch.float32; VocoderWithBWE.forward is bypassed.
+2026-04-24 16:50:05,780 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:50:05,934 [INFO] Gemma text encoder resident on npu:4
+2026-04-24 16:50:05,935 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:50:06,163 [INFO] Embeddings processor resident on npu:3
+2026-04-24 16:50:06,163 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:50:06,333 [INFO] Embeddings processor resident on npu:0
+2026-04-24 16:50:06,333 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:50:06,364 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:50:06,526 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:50:06,580 [INFO] Spatial upsampler resident on npu:3
+2026-04-24 16:50:06,583 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:50:06,688 [INFO] Embeddings processor resident on npu:2
+2026-04-24 16:50:06,688 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:50:06,745 [INFO] Spatial upsampler resident on npu:0
+2026-04-24 16:50:06,748 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:50:06,841 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:3
+2026-04-24 16:50:06,841 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:50:06,841 [INFO] Building audio decoder/vocoder on device (resident audio dtype=torch.float32, no mel_spec.float)...
+2026-04-24 16:50:06,881 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:50:06,997 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:0
+2026-04-24 16:50:06,997 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:50:06,997 [INFO] Building audio decoder/vocoder on device (resident audio dtype=torch.float32, no mel_spec.float)...
+2026-04-24 16:50:07,034 [INFO] Embeddings processor resident on npu:4
+2026-04-24 16:50:07,034 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:50:07,083 [INFO] Resident audio mode installed; dtype=torch.float32; VocoderWithBWE.forward is bypassed.
+2026-04-24 16:50:07,084 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:50:07,096 [INFO] Spatial upsampler resident on npu:2
+2026-04-24 16:50:07,099 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:50:07,218 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:50:07,350 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:2
+2026-04-24 16:50:07,351 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:50:07,351 [INFO] Building audio decoder/vocoder on device (resident audio dtype=torch.float32, no mel_spec.float)...
+2026-04-24 16:50:07,409 [INFO] Spatial upsampler resident on npu:4
+2026-04-24 16:50:07,412 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:50:07,645 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:4
+2026-04-24 16:50:07,646 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:50:07,646 [INFO] Building audio decoder/vocoder on device (resident audio dtype=torch.float32, no mel_spec.float)...
+2026-04-24 16:50:08,254 [INFO] Resident audio mode installed; dtype=torch.float32; VocoderWithBWE.forward is bypassed.
+2026-04-24 16:50:08,254 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:50:08,415 [INFO] Resident audio mode installed; dtype=torch.float32; VocoderWithBWE.forward is bypassed.
+2026-04-24 16:50:08,415 [INFO] Running warmup inference (not timed)...
+/usr/local/lib/python3.11/site-packages/torch_npu/contrib/transfer_to_npu.py:182: UserWarning: Cannot create tensor with interal format while allow_internel_format=False, tensor will be created with base format. (Triggered internally at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:338.)
+  return fn(*args, **kwargs)
+2026-04-24 16:50:08,790 [INFO] Resident audio mode installed; dtype=torch.float32; VocoderWithBWE.forward is bypassed.
+2026-04-24 16:50:08,790 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:50:09,075 [INFO] Resident audio mode installed; dtype=torch.float32; VocoderWithBWE.forward is bypassed.
+2026-04-24 16:50:09,075 [INFO] Running warmup inference (not timed)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+/usr/local/lib/python3.11/site-packages/torch/distributed/distributed_c10d.py:4876: UserWarning: barrier(): using the device under current context. You can specify `device_id` in `init_process_group` to mute this warning.
+  warnings.warn(  # warn only once
+2026-04-24 16:50:12,345 [INFO] FSDP wrapped transformer: 2373604768 params, 8 ranks, ~0.6 GiB/rank (bf16)
+2026-04-24 16:50:12,374 [INFO] FSDP transformer ready on npu:7
+2026-04-24 16:50:12,375 [INFO] Building Gemma text encoder on device (resident mode)...
+2026-04-24 16:50:13,668 [INFO] Gemma text encoder resident on npu:5
+2026-04-24 16:50:13,668 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:50:14,853 [INFO] Embeddings processor resident on npu:5
+2026-04-24 16:50:14,854 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:50:15,041 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:50:15,223 [INFO] Spatial upsampler resident on npu:5
+2026-04-24 16:50:15,226 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:50:15,467 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:5
+2026-04-24 16:50:15,467 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:50:15,467 [INFO] Building audio decoder/vocoder on device (resident audio dtype=torch.float32, no mel_spec.float)...
+Using a slow image processor as `use_fast` is unset and a slow processor was saved with this model. `use_fast=True` will be the default behavior in v4.52, even if the model was saved with a slow processor. This will result in minor differences in outputs. You'll still be able to use a slow processor with `use_fast=False`.
+2026-04-24 16:50:17,007 [INFO] Resident audio mode installed; dtype=torch.float32; VocoderWithBWE.forward is bypassed.
+2026-04-24 16:50:17,008 [INFO] Running warmup inference (not timed)...
+2026-04-24 16:50:21,080 [INFO] Gemma text encoder resident on npu:7
+2026-04-24 16:50:21,082 [INFO] Building embeddings processor on device (resident mode)...
+2026-04-24 16:50:22,238 [INFO] Embeddings processor resident on npu:7
+2026-04-24 16:50:22,239 [INFO] Replacing VideoEncoder with a Hollow Proxy (keeps stats, 0 NPU memory)...
+2026-04-24 16:50:22,434 [INFO] Building spatial upsampler on device (resident mode)...
+2026-04-24 16:50:22,645 [INFO] Spatial upsampler resident on npu:7
+2026-04-24 16:50:22,652 [INFO] Building video decoder on device (resident VAE parallel mode)...
+2026-04-24 16:50:22,899 [INFO] Hooked resident VAE parallel decode (grid=2x4) on npu:7
+2026-04-24 16:50:22,899 [INFO] Keeping audio decoder enabled on NPU (dtype-align proxy active).
+2026-04-24 16:50:22,899 [INFO] Building audio decoder/vocoder on device (resident audio dtype=torch.float32, no mel_spec.float)...
+2026-04-24 16:50:24,330 [INFO] Resident audio mode installed; dtype=torch.float32; VocoderWithBWE.forward is bypassed.
+2026-04-24 16:50:24,330 [INFO] Running warmup inference (not timed)...
+  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s]  0%|          | 0/8 [00:00<?, ?it/s] 12%|█▎        | 1/8 [00:03<00:21,  3.03s/it] 12%|█▎        | 1/8 [00:03<00:21,  3.03s/it] 12%|█▎        | 1/8 [00:03<00:21,  3.03s/it] 12%|█▎        | 1/8 [00:03<00:21,  3.03s/it] 12%|█▎        | 1/8 [00:03<00:21,  3.03s/it] 12%|█▎        | 1/8 [00:03<00:21,  3.03s/it] 12%|█▎        | 1/8 [00:03<00:21,  3.03s/it] 12%|█▎        | 1/8 [00:03<00:21,  3.03s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.68s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.68s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.68s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.68s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.68s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.68s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.68s/it] 25%|██▌       | 2/8 [00:03<00:10,  1.68s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 38%|███▊      | 3/8 [00:04<00:06,  1.26s/it] 50%|█████     | 4/8 [00:05<00:04,  1.07s/it] 50%|█████     | 4/8 [00:05<00:04,  1.07s/it] 50%|█████     | 4/8 [00:05<00:04,  1.07s/it] 50%|█████     | 4/8 [00:05<00:04,  1.07s/it] 50%|█████     | 4/8 [00:05<00:04,  1.07s/it] 50%|█████     | 4/8 [00:05<00:04,  1.07s/it] 50%|█████     | 4/8 [00:05<00:04,  1.07s/it] 50%|█████     | 4/8 [00:05<00:04,  1.07s/it] 62%|██████▎   | 5/8 [00:06<00:02,  1.03it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.03it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.03it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.03it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.03it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.03it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.03it/s] 62%|██████▎   | 5/8 [00:06<00:02,  1.03it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.11it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.11it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.11it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.11it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.11it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.11it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.11it/s] 75%|███████▌  | 6/8 [00:06<00:01,  1.11it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.16it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.16it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.16it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.16it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.16it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.16it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.16it/s] 88%|████████▊ | 7/8 [00:07<00:00,  1.16it/s]100%|██████████| 8/8 [00:08<00:00,  1.20it/s]100%|██████████| 8/8 [00:08<00:00,  1.20it/s]100%|██████████| 8/8 [00:08<00:00,  1.20it/s]100%|██████████| 8/8 [00:08<00:00,  1.20it/s]100%|██████████| 8/8 [00:08<00:00,  1.20it/s]100%|██████████| 8/8 [00:08<00:00,  1.20it/s]100%|██████████| 8/8 [00:08<00:00,  1.05s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.05s/it]100%|██████████| 8/8 [00:08<00:00,  1.05s/it]100%|██████████| 8/8 [00:08<00:00,  1.20it/s]
+
+100%|██████████| 8/8 [00:08<00:00,  1.05s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.05s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.05s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.05s/it]
+100%|██████████| 8/8 [00:08<00:00,  1.20it/s]100%|██████████| 8/8 [00:08<00:00,  1.05s/it]
+2026-04-24 16:50:35,644 [INFO] [DiT Loop] 8 steps in 8.426s (1.053s/step)
+  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s]  0%|          | 0/3 [00:00<?, ?it/s] 33%|███▎      | 1/3 [00:01<00:03,  1.68s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.68s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.68s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.68s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.68s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.69s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.69s/it] 33%|███▎      | 1/3 [00:01<00:03,  1.69s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.61s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.61s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.61s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.61s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.61s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.61s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.61s/it] 67%|██████▋   | 2/3 [00:03<00:01,  1.61s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]
+
+100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.59s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.60s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.60s/it]100%|██████████| 3/3 [00:04<00:00,  1.60s/it]
+
+100%|██████████| 3/3 [00:04<00:00,  1.60s/it]
+100%|██████████| 3/3 [00:04<00:00,  1.60s/it]
+2026-04-24 16:50:40,630 [INFO] [DiT Loop] 3 steps in 4.814s (1.605s/step)
+2026-04-24 16:50:40,631 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:50:40,631 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:50:40,631 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:50:40,631 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:50:40,632 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:50:40,632 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:50:40,632 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+2026-04-24 16:50:40,632 [INFO] VAE parallel enabled: disable spatial tiled_decode and keep temporal tiling only
+[rank2]:[E424 16:50:48.328172065 compiler_depend.ts:454] operator():build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 NPU function error: call aclnnConvolution failed, error code is 207001
+[ERROR] 2026-04-24-16:50:48 (PID:582140, Device:2, RankID:2) ERR00100 PTA call acl api failed
+[Error]: Failed to apply for memory.
+        Check the remaining storage space in the hardware environment.
+[PID: 582140] 2026-04-24-16:50:48.026.107 Memory_Allocation_Failure(EL0004): Failed to allocate memory requested by RUNTIME module.
+        Possible Cause: Available memory is insufficient.
+        Solution: Close applications not in use.
+        TraceBack (most recent call last):
+        allocate device memory failed.[FUNC:AddMemoryPool][FILE:memory_pool_manager.cc][LINE:107]
+        Failed to allocate memory requested by UNKNOWN module.
+        rtsFuncGetByEntry execution failed, reason=driver error:out of memory[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:61]
+        Binary get function by entry Failed, runtime result = 207001[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+        aclrtBinaryGetFunctionByEntry failed, kernel name: Conv2DTranspose, tiling key: 12937
+        Init function handle failed.
+        Kernel Run failed. opType: 70, Conv2DTranspose
+        launch failed for Conv2DTranspose, errno:361001.
+
+Exception raised from operator() at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xb0 (0xffff94c1c700 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x68 (0xffff94bba860 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x10755d0 (0xffff83b855d0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x2ca2d54 (0xffff857b2d54 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0xa810b0 (0xffff835910b0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0xa81c8c (0xffff83591c8c in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0xa7fba8 (0xffff8358fba8 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0xe1ae0 (0xffff949d1ae0 in /lib/aarch64-linux-gnu/libstdc++.so.6)
+frame #8: <unknown function> + 0x8595c (0xffffa0fe595c in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xebb4c (0xffffa104bb4c in /lib/aarch64-linux-gnu/libc.so.6)
+
+[rank4]:[E424 16:50:48.328999376 compiler_depend.ts:454] operator():build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 NPU function error: call aclnnConvolution failed, error code is 207001
+[ERROR] 2026-04-24-16:50:48 (PID:582142, Device:4, RankID:4) ERR00100 PTA call acl api failed
+[Error]: Failed to apply for memory.
+        Check the remaining storage space in the hardware environment.
+[PID: 582142] 2026-04-24-16:50:47.987.976 Memory_Allocation_Failure(EL0004): Failed to allocate memory requested by RUNTIME module.
+        Possible Cause: Available memory is insufficient.
+        Solution: Close applications not in use.
+        TraceBack (most recent call last):
+        allocate device memory failed.[FUNC:AddMemoryPool][FILE:memory_pool_manager.cc][LINE:107]
+        Failed to allocate memory requested by UNKNOWN module.
+        rtsFuncGetByEntry execution failed, reason=driver error:out of memory[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:61]
+        Binary get function by entry Failed, runtime result = 207001[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+        aclrtBinaryGetFunctionByEntry failed, kernel name: Conv2DTranspose, tiling key: 12937
+        Init function handle failed.
+        Kernel Run failed. opType: 70, Conv2DTranspose
+        launch failed for Conv2DTranspose, errno:361001.
+
+Exception raised from operator() at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xb0 (0xffffb077c700 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x68 (0xffffb071a860 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x10755d0 (0xffff9f6e55d0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x2ca2d54 (0xffffa1312d54 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0xa810b0 (0xffff9f0f10b0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0xa81c8c (0xffff9f0f1c8c in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0xa7fba8 (0xffff9f0efba8 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0xe1ae0 (0xffffb0531ae0 in /lib/aarch64-linux-gnu/libstdc++.so.6)
+frame #8: <unknown function> + 0x8595c (0xffffbcb4595c in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xebb4c (0xffffbcbabb4c in /lib/aarch64-linux-gnu/libc.so.6)
+
+[rank2]: Traceback (most recent call last):
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank2]:     main()
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank2]:     return func(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank2]:     result = pipeline.run_with_timing(
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 855, in run_with_timing
+[rank2]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank2]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank2]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank2]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 728, in __call__
+[rank2]:     waveform = _run_vocoder_with_bwe(voc_mod, decoded_audio).squeeze(0).float()
+[rank2]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 701, in _run_vocoder_with_bwe
+[rank2]:     residual = voc.bwe_generator(mel_for_bwe)
+[rank2]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in forward
+[rank2]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank2]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in <listcomp>
+[rank2]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank2]:      ^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 263, in forward
+[rank2]:     xt = a1(x)
+[rank2]:          ^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 161, in forward
+[rank2]:     x = self.act(x)
+[rank2]:         ^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank2]:     return self._call_impl(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank2]:     return forward_call(*args, **kwargs)
+[rank2]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank2]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 207, in forward
+[rank2]:     beta = torch.exp(beta)
+[rank2]:            ^^^^^^^^^^^^^^^
+[rank2]: RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnConvolution.
+[rank2]: Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
+[rank2]: Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
+[rank2]: [ERROR] 2026-04-24-16:50:48 (PID:582140, Device:2, RankID:2) ERR00100 PTA call acl api failed.
+
+[rank1]:[E424 16:50:48.336195076 compiler_depend.ts:454] operator():build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 NPU function error: call aclnnConvolution failed, error code is 207001
+[ERROR] 2026-04-24-16:50:48 (PID:582139, Device:1, RankID:1) ERR00100 PTA call acl api failed
+[Error]: Failed to apply for memory.
+        Check the remaining storage space in the hardware environment.
+[PID: 582139] 2026-04-24-16:50:47.838.422 Memory_Allocation_Failure(EL0004): Failed to allocate memory requested by RUNTIME module.
+        Possible Cause: Available memory is insufficient.
+        Solution: Close applications not in use.
+        TraceBack (most recent call last):
+        allocate device memory failed.[FUNC:AddMemoryPool][FILE:memory_pool_manager.cc][LINE:107]
+        Failed to allocate memory requested by UNKNOWN module.
+        rtsFuncGetByEntry execution failed, reason=driver error:out of memory[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:61]
+        Binary get function by entry Failed, runtime result = 207001[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+        aclrtBinaryGetFunctionByEntry failed, kernel name: Conv2DTranspose, tiling key: 12937
+        Init function handle failed.
+        Kernel Run failed. opType: 70, Conv2DTranspose
+        launch failed for Conv2DTranspose, errno:361001.
+
+Exception raised from operator() at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xb0 (0xffff8e75c700 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x68 (0xffff8e6fa860 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x10755d0 (0xffff7d6c55d0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x2ca2d54 (0xffff7f2f2d54 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0xa810b0 (0xffff7d0d10b0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0xa81c8c (0xffff7d0d1c8c in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0xa7fba8 (0xffff7d0cfba8 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0xe1ae0 (0xffff8e511ae0 in /lib/aarch64-linux-gnu/libstdc++.so.6)
+frame #8: <unknown function> + 0x8595c (0xffff9ab2595c in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xebb4c (0xffff9ab8bb4c in /lib/aarch64-linux-gnu/libc.so.6)
+
+[rank4]: Traceback (most recent call last):
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank4]:     main()
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank4]:     return func(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank4]:     result = pipeline.run_with_timing(
+[rank4]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 855, in run_with_timing
+[rank4]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank4]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank4]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank4]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 728, in __call__
+[rank4]:     waveform = _run_vocoder_with_bwe(voc_mod, decoded_audio).squeeze(0).float()
+[rank4]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 701, in _run_vocoder_with_bwe
+[rank4]:     residual = voc.bwe_generator(mel_for_bwe)
+[rank4]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in forward
+[rank4]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank4]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in <listcomp>
+[rank4]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank4]:      ^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 265, in forward
+[rank4]:     xt = a2(xt)
+[rank4]:          ^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 161, in forward
+[rank4]:     x = self.act(x)
+[rank4]:         ^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank4]:     return self._call_impl(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank4]:     return forward_call(*args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 208, in forward
+[rank4]:     return x + (1.0 / (beta + self.eps)) * torch.sin(x * alpha).pow(2)
+[rank4]:                 ~~~~^~~~~~~~~~~~~~~~~~~
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/_tensor.py", line 45, in wrapped
+[rank4]:     return f(self, *args, **kwargs)
+[rank4]:            ^^^^^^^^^^^^^^^^^^^^^^^^
+[rank4]:   File "/usr/local/lib/python3.11/site-packages/torch/_tensor.py", line 1079, in __rdiv__
+[rank4]:     return self.reciprocal() * other
+[rank4]:            ~~~~~~~~~~~~~~~~~~^~~~~~~
+[rank4]: RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnConvolution.
+[rank4]: Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
+[rank4]: Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
+[rank4]: [ERROR] 2026-04-24-16:50:48 (PID:582142, Device:4, RankID:4) ERR00100 PTA call acl api failed.
+
+[rank1]: Traceback (most recent call last):
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank1]:     main()
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank1]:     return func(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank1]:     result = pipeline.run_with_timing(
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 855, in run_with_timing
+[rank1]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank1]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank1]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank1]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 728, in __call__
+[rank1]:     waveform = _run_vocoder_with_bwe(voc_mod, decoded_audio).squeeze(0).float()
+[rank1]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 701, in _run_vocoder_with_bwe
+[rank1]:     residual = voc.bwe_generator(mel_for_bwe)
+[rank1]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in forward
+[rank1]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank1]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in <listcomp>
+[rank1]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank1]:      ^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 263, in forward
+[rank1]:     xt = a1(x)
+[rank1]:          ^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 160, in forward
+[rank1]:     x = self.upsample(x)
+[rank1]:         ^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank1]:     return self._call_impl(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank1]:     return forward_call(*args, **kwargs)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 123, in forward
+[rank1]:     x = F.pad(x, (self.pad, self.pad), mode="replicate")
+[rank1]:         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/functional.py", line 5294, in pad
+[rank1]:     return torch._C._nn.pad(input, pad, mode, value)
+[rank1]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank1]: RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnConvolution.
+[rank1]: Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
+[rank1]: Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
+[rank1]: [ERROR] 2026-04-24-16:50:48 (PID:582139, Device:1, RankID:1) ERR00100 PTA call acl api failed.
+
+[rank6]:[E424 16:50:48.359826742 compiler_depend.ts:454] operator():build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 NPU function error: call aclnnConvolution failed, error code is 207001
+[ERROR] 2026-04-24-16:50:48 (PID:582144, Device:6, RankID:6) ERR00100 PTA call acl api failed
+[Error]: Failed to apply for memory.
+        Check the remaining storage space in the hardware environment.
+[PID: 582144] 2026-04-24-16:50:48.129.962 Memory_Allocation_Failure(EL0004): Failed to allocate memory requested by RUNTIME module.
+        Possible Cause: Available memory is insufficient.
+        Solution: Close applications not in use.
+        TraceBack (most recent call last):
+        allocate device memory failed.[FUNC:AddMemoryPool][FILE:memory_pool_manager.cc][LINE:107]
+        Failed to allocate memory requested by UNKNOWN module.
+        rtsFuncGetByEntry execution failed, reason=driver error:out of memory[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:61]
+        Binary get function by entry Failed, runtime result = 207001[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+        aclrtBinaryGetFunctionByEntry failed, kernel name: Conv2DTranspose, tiling key: 12937
+        Init function handle failed.
+        Kernel Run failed. opType: 70, Conv2DTranspose
+        launch failed for Conv2DTranspose, errno:361001.
+
+Exception raised from operator() at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xb0 (0xffffa168c700 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x68 (0xffffa162a860 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x10755d0 (0xffff905f55d0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x2ca2d54 (0xffff92222d54 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0xa810b0 (0xffff900010b0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0xa81c8c (0xffff90001c8c in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0xa7fba8 (0xffff8ffffba8 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0xe1ae0 (0xffffa1441ae0 in /lib/aarch64-linux-gnu/libstdc++.so.6)
+frame #8: <unknown function> + 0x8595c (0xffffada5595c in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xebb4c (0xffffadabbb4c in /lib/aarch64-linux-gnu/libc.so.6)
+
+[rank5]:[E424 16:50:48.361347453 compiler_depend.ts:454] operator():build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 NPU function error: call aclnnConvolution failed, error code is 207001
+[ERROR] 2026-04-24-16:50:48 (PID:582143, Device:5, RankID:5) ERR00100 PTA call acl api failed
+[Error]: Failed to apply for memory.
+        Check the remaining storage space in the hardware environment.
+[PID: 582143] 2026-04-24-16:50:48.102.644 Memory_Allocation_Failure(EL0004): Failed to allocate memory requested by RUNTIME module.
+        Possible Cause: Available memory is insufficient.
+        Solution: Close applications not in use.
+        TraceBack (most recent call last):
+        allocate device memory failed.[FUNC:AddMemoryPool][FILE:memory_pool_manager.cc][LINE:107]
+        Failed to allocate memory requested by UNKNOWN module.
+        rtsFuncGetByEntry execution failed, reason=driver error:out of memory[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:61]
+        Binary get function by entry Failed, runtime result = 207001[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+        aclrtBinaryGetFunctionByEntry failed, kernel name: Conv2DTranspose, tiling key: 12937
+        Init function handle failed.
+        Kernel Run failed. opType: 70, Conv2DTranspose
+        launch failed for Conv2DTranspose, errno:361001.
+
+Exception raised from operator() at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xb0 (0xffff963dc700 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x68 (0xffff9637a860 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x10755d0 (0xffff853455d0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x2ca2d54 (0xffff86f72d54 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0xa810b0 (0xffff84d510b0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0xa81c8c (0xffff84d51c8c in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0xa7fba8 (0xffff84d4fba8 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0xe1ae0 (0xffff96191ae0 in /lib/aarch64-linux-gnu/libstdc++.so.6)
+frame #8: <unknown function> + 0x8595c (0xffffa27a595c in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xebb4c (0xffffa280bb4c in /lib/aarch64-linux-gnu/libc.so.6)
+
+[rank7]:[E424 16:50:48.362423698 compiler_depend.ts:454] operator():build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 NPU function error: call aclnnConvolution failed, error code is 207001
+[ERROR] 2026-04-24-16:50:48 (PID:582145, Device:7, RankID:7) ERR00100 PTA call acl api failed
+[Error]: Failed to apply for memory.
+        Check the remaining storage space in the hardware environment.
+[PID: 582145] 2026-04-24-16:50:48.062.969 Memory_Allocation_Failure(EL0004): Failed to allocate memory requested by RUNTIME module.
+        Possible Cause: Available memory is insufficient.
+        Solution: Close applications not in use.
+        TraceBack (most recent call last):
+        allocate device memory failed.[FUNC:AddMemoryPool][FILE:memory_pool_manager.cc][LINE:107]
+        Failed to allocate memory requested by UNKNOWN module.
+        rtsFuncGetByEntry execution failed, reason=driver error:out of memory[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:61]
+        Binary get function by entry Failed, runtime result = 207001[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+        aclrtBinaryGetFunctionByEntry failed, kernel name: TransData, tiling key: 3001111013
+        Init function handle failed.
+        Kernel Run failed. opType: 64, TransData
+        launch failed for TransData, errno:361001.
+
+Exception raised from operator() at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xb0 (0xffffa79dc700 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x68 (0xffffa797a860 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x10755d0 (0xffff969455d0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x2ca2d54 (0xffff98572d54 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0xa810b0 (0xffff963510b0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0xa81c8c (0xffff96351c8c in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0xa7fba8 (0xffff9634fba8 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0xe1ae0 (0xffffa7791ae0 in /lib/aarch64-linux-gnu/libstdc++.so.6)
+frame #8: <unknown function> + 0x8595c (0xffffb3da595c in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xebb4c (0xffffb3e0bb4c in /lib/aarch64-linux-gnu/libc.so.6)
+
+[rank7]: Traceback (most recent call last):
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank7]:     main()
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank7]:     return func(*args, **kwargs)
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank7]:     result = pipeline.run_with_timing(
+[rank7]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 855, in run_with_timing
+[rank7]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank7]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank7]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank7]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 723, in __call__
+[rank7]:     decoded_audio = wrapped_dec(latent)
+[rank7]:                     ^^^^^^^^^^^^^^^^^^^
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 676, in __call__
+[rank7]:     profiler.sync()
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_profiler.py", line 41, in sync
+[rank7]:     self._ctx.synchronize()
+[rank7]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/device_context.py", line 100, in synchronize
+[rank7]:     torch.npu.synchronize()
+[rank7]:   File "/usr/local/lib/python3.11/site-packages/torch_npu/npu/utils.py", line 72, in synchronize
+[rank7]:     return torch_npu._C._npu_synchronize()
+[rank7]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank7]: RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnConvolution.
+[rank7]: Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
+[rank7]: Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
+[rank7]: [ERROR] 2026-04-24-16:50:48 (PID:582145, Device:7, RankID:7) ERR00100 PTA call acl api failed.
+
+[rank6]: Traceback (most recent call last):
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank6]:     main()
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank6]:     return func(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank6]:     result = pipeline.run_with_timing(
+[rank6]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 855, in run_with_timing
+[rank6]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank6]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank6]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank6]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 728, in __call__
+[rank6]:     waveform = _run_vocoder_with_bwe(voc_mod, decoded_audio).squeeze(0).float()
+[rank6]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 701, in _run_vocoder_with_bwe
+[rank6]:     residual = voc.bwe_generator(mel_for_bwe)
+[rank6]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in forward
+[rank6]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank6]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in <listcomp>
+[rank6]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank6]:      ^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 266, in forward
+[rank6]:     xt = c2(xt)
+[rank6]:          ^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank6]:     return self._call_impl(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank6]:     return forward_call(*args, **kwargs)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 371, in forward
+[rank6]:     return self._conv_forward(input, self.weight, self.bias)
+[rank6]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank6]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/conv.py", line 366, in _conv_forward
+[rank6]:     return F.conv1d(
+[rank6]:            ^^^^^^^^^
+[rank6]: RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnConvolution.
+[rank6]: Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
+[rank6]: Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
+[rank6]: [ERROR] 2026-04-24-16:50:48 (PID:582144, Device:6, RankID:6) ERR00100 PTA call acl api failed.
+
+[rank5]: Traceback (most recent call last):
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank5]:     main()
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank5]:     return func(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank5]:     result = pipeline.run_with_timing(
+[rank5]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 855, in run_with_timing
+[rank5]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank5]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank5]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank5]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 728, in __call__
+[rank5]:     waveform = _run_vocoder_with_bwe(voc_mod, decoded_audio).squeeze(0).float()
+[rank5]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 701, in _run_vocoder_with_bwe
+[rank5]:     residual = voc.bwe_generator(mel_for_bwe)
+[rank5]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in forward
+[rank5]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank5]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in <listcomp>
+[rank5]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank5]:      ^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 263, in forward
+[rank5]:     xt = a1(x)
+[rank5]:          ^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 162, in forward
+[rank5]:     return self.downsample(x)
+[rank5]:            ^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 142, in forward
+[rank5]:     return self.lowpass(x)
+[rank5]:            ^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank5]:     return self._call_impl(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank5]:     return forward_call(*args, **kwargs)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 79, in forward
+[rank5]:     return F.conv1d(x, self.filter.expand(n_channels, -1, -1), stride=self.stride, groups=n_channels)
+[rank5]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank5]: RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnConvolution.
+[rank5]: Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
+[rank5]: Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
+[rank5]: [ERROR] 2026-04-24-16:50:48 (PID:582143, Device:5, RankID:5) ERR00100 PTA call acl api failed.
+
+[rank3]:[E424 16:50:48.394922007 compiler_depend.ts:454] operator():build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 NPU function error: call aclnnConvolution failed, error code is 207001
+[ERROR] 2026-04-24-16:50:48 (PID:582141, Device:3, RankID:3) ERR00100 PTA call acl api failed
+[Error]: Failed to apply for memory.
+        Check the remaining storage space in the hardware environment.
+[PID: 582141] 2026-04-24-16:50:48.101.454 Memory_Allocation_Failure(EL0004): Failed to allocate memory requested by RUNTIME module.
+        Possible Cause: Available memory is insufficient.
+        Solution: Close applications not in use.
+        TraceBack (most recent call last):
+        allocate device memory failed.[FUNC:AddMemoryPool][FILE:memory_pool_manager.cc][LINE:107]
+        Failed to allocate memory requested by UNKNOWN module.
+        rtsFuncGetByEntry execution failed, reason=driver error:out of memory[FUNC:FuncErrorReason][FILE:error_message_manage.cc][LINE:61]
+        Binary get function by entry Failed, runtime result = 207001[FUNC:ReportCallError][FILE:log_inner.cpp][LINE:148]
+        aclrtBinaryGetFunctionByEntry failed, kernel name: Conv2DTranspose, tiling key: 12937
+        Init function handle failed.
+        Kernel Run failed. opType: 70, Conv2DTranspose
+        launch failed for Conv2DTranspose, errno:361001.
+
+Exception raised from operator() at build/CMakeFiles/torch_npu.dir/compiler_depend.ts:232 (most recent call first):
+frame #0: c10::Error::Error(c10::SourceLocation, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) + 0xb0 (0xffffa336c700 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #1: c10::detail::torchCheckFail(char const*, char const*, unsigned int, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > const&) + 0x68 (0xffffa330a860 in /usr/local/lib/python3.11/site-packages/torch/lib/libc10.so)
+frame #2: <unknown function> + 0x10755d0 (0xffff922d55d0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #3: <unknown function> + 0x2ca2d54 (0xffff93f02d54 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #4: <unknown function> + 0xa810b0 (0xffff91ce10b0 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #5: <unknown function> + 0xa81c8c (0xffff91ce1c8c in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #6: <unknown function> + 0xa7fba8 (0xffff91cdfba8 in /usr/local/lib/python3.11/site-packages/torch_npu/lib/libtorch_npu.so)
+frame #7: <unknown function> + 0xe1ae0 (0xffffa3121ae0 in /lib/aarch64-linux-gnu/libstdc++.so.6)
+frame #8: <unknown function> + 0x8595c (0xffffaf73595c in /lib/aarch64-linux-gnu/libc.so.6)
+frame #9: <unknown function> + 0xebb4c (0xffffaf79bb4c in /lib/aarch64-linux-gnu/libc.so.6)
+
+[rank3]: Traceback (most recent call last):
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 114, in <module>
+[rank3]:     main()
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/utils/_contextlib.py", line 120, in decorate_context
+[rank3]:     return func(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/run_distilled.py", line 87, in main
+[rank3]:     result = pipeline.run_with_timing(
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 855, in run_with_timing
+[rank3]:     result = self._patched_pipeline_call(**call_kwargs)
+[rank3]:              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-pipelines/src/ltx_pipelines/distilled.py", line 172, in __call__
+[rank3]:     decoded_audio = self.audio_decoder(audio_state.latent)
+[rank3]:                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 728, in __call__
+[rank3]:     waveform = _run_vocoder_with_bwe(voc_mod, decoded_audio).squeeze(0).float()
+[rank3]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/ltx_npu/pipeline_wrapper.py", line 701, in _run_vocoder_with_bwe
+[rank3]:     residual = voc.bwe_generator(mel_for_bwe)
+[rank3]:                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in forward
+[rank3]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank3]:     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 405, in <listcomp>
+[rank3]:     [self.resblocks[idx](x) for idx in range(start, end)],
+[rank3]:      ^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1775, in _wrapped_call_impl
+[rank3]:     return self._call_impl(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/usr/local/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1786, in _call_impl
+[rank3]:     return forward_call(*args, **kwargs)
+[rank3]:            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+[rank3]:   File "/home/zhoulong/LTX-2-feat-ascend/packages/ltx-core/src/ltx_core/model/audio_vae/vocoder.py", line 267, in forward
+[rank3]:     x = x + xt
+[rank3]:         ~~^~~~
+[rank3]: RuntimeError: The Inner error is reported as above. The process exits for this inner error, and the current working operator name is aclnnConvolution.
+[rank3]: Since the operator is called asynchronously, the stacktrace may be inaccurate. If you want to get the accurate stacktrace, please set the environment variable ASCEND_LAUNCH_BLOCKING=1.
+[rank3]: Note: ASCEND_LAUNCH_BLOCKING=1 will force ops to run in synchronous mode, resulting in performance degradation. Please unset ASCEND_LAUNCH_BLOCKING in time after debugging.
+[rank3]: [ERROR] 2026-04-24-16:50:48 (PID:582141, Device:3, RankID:3) ERR00100 PTA call acl api failed.
+
+W0424 16:50:57.779000 582069 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 582138 closing signal SIGTERM
+W0424 16:50:57.779000 582069 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 582139 closing signal SIGTERM
+W0424 16:50:57.780000 582069 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 582140 closing signal SIGTERM
+W0424 16:50:57.780000 582069 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 582141 closing signal SIGTERM
+W0424 16:50:57.781000 582069 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 582142 closing signal SIGTERM
+W0424 16:50:57.781000 582069 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 582143 closing signal SIGTERM
+W0424 16:50:57.782000 582069 torch/distributed/elastic/multiprocessing/api.py:908] Sending process 582144 closing signal SIGTERM
+E0424 16:50:59.513000 582069 torch/distributed/elastic/multiprocessing/api.py:882] failed (exitcode: 1) local_rank: 7 (pid: 582145) of binary: /usr/local/bin/python3.11
+Traceback (most recent call last):
+  File "/usr/local/bin/torchrun", line 8, in <module>
+    sys.exit(main())
+             ^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 357, in wrapper
+    return f(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/run.py", line 936, in main
+    run(args)
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/run.py", line 927, in run
+    elastic_launch(
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 156, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.11/site-packages/torch/distributed/launcher/api.py", line 293, in launch_agent
+    raise ChildFailedError(
+torch.distributed.elastic.multiprocessing.errors.ChildFailedError: 
+============================================================
+run_distilled.py FAILED
+------------------------------------------------------------
+Failures:
+  <NO_OTHER_FAILURES>
+------------------------------------------------------------
+Root Cause (first observed failure):
+[0]:
+  time      : 2026-04-24_16:50:57
+  host      : hostname-xxi4w.foreman.pxe
+  rank      : 7 (local_rank: 7)
+  exitcode  : 1 (pid: 582145)
+  error_file: <N/A>
+  traceback : To enable traceback see: https://pytorch.org/docs/stable/elastic/errors.html
+============================================================
+[ERROR] 2026-04-24-16:50:59 (PID:582069, Device:-1, RankID:-1) ERR99999 UNKNOWN applicaiton exception

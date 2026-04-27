@@ -26,16 +26,32 @@ tmp
 *.safetensors
 *.sft
 
-# Media files
+# Media outputs (generated videos/images)
 *.gif
 *.heic
 *.heif
 *.jpg
 *.jpeg
-*.json
 *.m4a
 *.mov
 *.mp4
 *.png
 *.wav
 *.webp
+
+# Test outputs and benchmark logs
+outputs/
+benchmark_*.log
+
+# Temporary test scripts
+run_004_tests.sh
+
+# NPU compiler artifacts
+fusion_result.json
+kernel_meta/
+*.o
+*.json.bak
+
+# NPU compilation artifacts
+fusion_result.json
+kernel_meta/
