@@ -1,3 +1,23 @@
+
+# LTX_RANK0_ONLY_OUTPUT_ARGV_PATCH
+# Only rank0 writes the requested final output path.
+# Non-main ranks rewrite --output-path in sys.argv before argparse parses it.
+import os as _ltx_rank_os
+import sys as _ltx_rank_sys
+
+_ltx_rank = int(_ltx_rank_os.getenv("RANK", _ltx_rank_os.getenv("LOCAL_RANK", "0")))
+
+if _ltx_rank != 0 and "--output-path" in _ltx_rank_sys.argv:
+    _i = _ltx_rank_sys.argv.index("--output-path")
+    if _i + 1 < len(_ltx_rank_sys.argv):
+        _orig_out = _ltx_rank_sys.argv[_i + 1]
+        _out_dir = _ltx_rank_os.path.dirname(_orig_out) or "."
+        _out_base = _ltx_rank_os.path.basename(_orig_out)
+        _ltx_rank_sys.argv[_i + 1] = _ltx_rank_os.path.join(
+            _out_dir,
+            f".rank{_ltx_rank}_{_out_base}",
+        )
+
 # === ULTIMATE GOD MODE PATCH ===
 import torch
 import torch.nn.functional as F
@@ -154,6 +174,8 @@ def main() -> None:
 
     parser = build_arg_parser()
     args = parser.parse_args()
+
+
 
     pcfg = ParallelConfig.from_args(args)
 
