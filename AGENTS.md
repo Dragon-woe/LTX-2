@@ -1,89 +1,83 @@
 # AGENTS.md — LTX-2 Ascend NPU
 
-NPU adaptation of [Lightricks LTX-2](https://github.com/Lightricks/LTX-2) for multi-card Ascend 910B3 parallel inference.
+Ascend NPU adaptation of LTX-2.3 for multi-card inference on Ascend 910B3. The production path supports 8-card text-to-video generation with model-generated audio.
 
-## Quick commands
+## Quick Commands
 
 ```bash
-# Setup
-conda activate torch280_py310_diffusion   # Python 3.10, torch 2.8.0 + torch_npu 2.8.0
-uv sync --frozen
+# Environment
+conda activate ltx2_npu
 
-# Lint (ruff, config in root pyproject.toml)
-ruff check .
+# Install local packages
+pip install -e packages/ltx-core
+pip install -e packages/ltx-pipelines
+pip install -e packages/ltx-trainer
+pip install -e .
 
-# Run tests (MUST use torchrun for distributed env setup)
+# Clean residual NPU processes for this repo
+KILL_TORCHRUN=1 bash examples/scripts/clean_npu.sh && sleep 5
+
+# 8-card example; edit model paths before running
+bash examples/scripts/run_8npu_distilled.sh
+
+# Distributed tests must use torchrun
 torchrun --nproc_per_node=N -m pytest testcase/ -v
-
-# Multi-card inference
-torchrun --nproc_per_node=N run_distilled.py --ulysses-degree N [--vae-parallel] ...
-
-# Benchmark suite
-bash scripts/benchmark.sh
-bash scripts/clean_npu.sh   # kill zombie python processes
 ```
 
-## Entry point
+## Main Entry Point
 
-`run_distilled.py` — contains critical runtime patches in its header (conv1d/conv2d dtype fix, audio Vocoder fp32 patch). These patches must execute before any model loading; do not refactor them into `ltx_npu/` without understanding NPU dtype crash behavior.
+`run_distilled.py` is the production inference entry point. It contains small runtime dtype patches for Ascend Conv/Vocoder paths and must run before model loading.
 
-## NPU adaptation module
+Use `README_NPU.md` as the user-facing setup and inference guide. Avoid adding personal absolute paths to docs or examples; use `/PATH/TO/...` placeholders or environment variables.
 
-`ltx_npu/` must be imported before model loading (`import ltx_npu`). It initializes torch_npu, patches safetensors loader for directory paths (>=0.7.0 compat), and optionally applies fused RMSNorm.
+## NPU Adaptation Module
 
-Key source files in `ltx_npu/`:
-- `pipeline_wrapper.py` — `ParallelDistilledPipeline`, wraps FSDP + Ulysses SP + VAE parallel
-- `ulysses_attn.py` — `UlyssesAttention`, AllToAll-based sequence parallelism
-- `vae_parallel.py` — spatial H×W patch parallel with P2P boundary exchange
-- `fsdp_manager.py` — FSDP FULL_SHARD weight management
-- `fused_ops.py` — RMSNorm fusion, FA multi-backend dispatch
-- `freqs_cache.py` — RoPE cosine/sine precomputation cache
-- `parallel_config.py` — validates parallel config: `ulysses_degree` must divide 32 and equal world_size
+`ltx_npu/` contains the Ascend adaptation layer. Keep production code focused and avoid committing one-off debug dump utilities unless they are documented and maintained.
 
-## Environment variables
+Key files:
 
-| Variable | Default | Purpose |
-|----------|---------|---------|
-| `ASCEND_RT_VISIBLE_DEVICES` | all | Visible NPU cards |
-| `FUSED_RMSNORM` | 0 | Enable `npu_rms_norm` fusion |
-| `ALGO` | 0 | FA backend: 0=fused_attn_score, 1=laser_attention, 3=npu_fused_infer_attention_score |
-| `FAST_LAYERNORM` | 0 | mindiesd fast_layernorm |
-| `PRECISION` | 0 | CPU RNG for cross-platform precision alignment |
-| `LTX_ENABLE_AUDIO_ON_NPU` | 1 | Toggle audio on NPU (set 0 for video-only stage) |
+- `pipeline_wrapper.py` — wraps `DistilledPipeline` with FSDP, Ulysses SP, VAE parallel, resident text/audio, timing, and optional profiler.
+- `fsdp_manager.py` — FSDP FULL_SHARD for the DiT transformer. Keep `cast_root_forward_inputs=False`; it prevents audio RoPE precision regressions.
+- `ulysses_attn.py` — AllToAll-based Ulysses sequence parallel attention for video self-attention.
+- `vae_parallel.py` — spatial H x W patch parallel video VAE decode with boundary exchange.
+- `fused_ops.py` — Ascend fused RMSNorm and attention backend dispatch.
+- `freqs_cache.py` — RoPE frequency cache; keeps positions in fp32.
+- `device_context.py` / `parallel_config.py` — device and distributed setup.
 
-## Production two-stage pipeline
+## Production Environment
 
-1. **Video**: `torchrun --nproc_per_node=8` with `--ulysses-degree 8 --vae-parallel` at high res (1024×1536)
-2. **Audio**: single-card at low res (512×512), `ASCEND_RT_VISIBLE_DEVICES=0`
-3. **Merge**: `ffmpeg -i video.mp4 -i audio.mp4 -c:v copy -map 0:v:0 -map 1:a:0 final.mp4`
+Recommended defaults for 8-card inference:
 
-See `run_industrial_pipeline.sh` / `run_native_8cards.sh` for reference.
+| Variable | Recommended | Purpose |
+|----------|-------------|---------|
+| `ASCEND_RT_VISIBLE_DEVICES` | `0,1,2,3,4,5,6,7` | Visible NPUs |
+| `HCCL_CONNECT_TIMEOUT` | `300` | HCCL startup tolerance |
+| `ALGO` | `1` | Laser Attention backend when available |
+| `FUSED_RMSNORM` | `1` | Ascend fused RMSNorm |
+| `PYTORCH_NPU_ALLOC_CONF` | `expandable_segments:True` | Reduce allocator fragmentation |
+| `LTX_ENABLE_AUDIO_ON_NPU` | `1` | Enable model-generated audio |
+| `LTX_DISABLE_TQDM` | `1` | Reduce host stdout overhead |
+| `LTX_PIPELINE_PROFILER` | unset / `0` | Keep profiler off for production timing |
 
-## Known quirks
+Experimental audio flags are not production defaults:
 
-- Stage 1 Ulysses SP is counter-productive at 480P (~512 tokens); communication dominates compute
-- `ALGO=1` warmup is ~60s first call
-- safetensors >=0.7.0 crashes on directory paths; `ltx_npu/__init__.py` patches the loader
-- Conv1d/Conv2d dtype mismatch crashes NPU (patched at top of `run_distilled.py`)
-- Audio generation under multi-card Ulysses SP may produce artifacts (known issue, documented in architecture.md)
+- `LTX_AUDIO_HEAD_PARALLEL=1` was slower in validation.
+- `LTX_AUDIO_ALL_RANKS=1` repeats audio decode on all ranks and is not true parallelism.
+- `LTX_AUDIO_DISABLE_BWE=1` changes the audio quality path and was not faster in validation.
 
-## Monorepo packages
+## Documentation And Examples
 
-- `packages/ltx-core/` — model architecture (transformer, VAE, text encoders)
-- `packages/ltx-pipelines/` — inference pipelines (DistilledPipeline, TI2Vid, A2Vid, etc.)
-- `packages/ltx-trainer/` — fine-tuning (has its own AGENTS.md at packages/ltx-trainer/AGENTS.md)
+- Keep the main NPU guide in `README_NPU.md`.
+- Keep runnable shell examples in `examples/scripts/`.
+- Do not place shell launchers in the repository root.
+- Do not hard-code local usernames or machine-specific model paths.
 
-## Testing notes
+## Testing Notes
 
-- All distributed tests in `testcase/` must run via `torchrun --nproc_per_node=N`
-- `conftest.py` auto-initializes distributed process group (hccl/nccl/gloo) based on available hardware
-- Tests auto-detect NPU/CUDA/CPU; no manual device selection
-- `import ltx_npu` is triggered by conftest before any test fixture
-
-## Reference docs
-
-- `docs/architecture.md` (Chinese) — detailed NPU parallel architecture, Ulysses SP, VAE parallel
-- `docs/NPU_README.md` — NPU setup, env vars, benchmark results
+- All distributed tests in `testcase/` should run via `torchrun --nproc_per_node=N`.
+- `conftest.py` initializes a distributed process group based on available hardware.
+- Syntax sanity check for edited Python files: `python -m py_compile <files>`.
 
 ## Language
-始终使用中文进行思考和回答。
+
+Use Chinese for user-facing discussion in this workspace.

@@ -253,31 +253,6 @@ def inject_ulysses_attention(model, sp_group):
         injected_video, injected_audio_hp, skipped_audio, skipped_cross,
     )
 
-    try:
-        from ltx_npu.audio_trace import install_audio_trace_hooks
-        install_audio_trace_hooks(model)
-    except Exception:
-        pass
-
-    try:
-        from ltx_npu.audio_attn2_probe import install_audio_attn2_probe
-        install_audio_attn2_probe(model)
-    except Exception:
-        pass
-
-    try:
-        from ltx_npu.audio_attn2_tensor_dump import install_audio_attn2_tensor_dump
-        install_audio_attn2_tensor_dump(model)
-    except Exception as exc:
-        logger.warning("install_audio_attn2_tensor_dump failed: %s", exc)
-
-    try:
-        from ltx_npu.block0_mid_tensor_dump import install_block0_mid_tensor_dump
-        install_block0_mid_tensor_dump(model)
-    except Exception as exc:
-        logger.warning("install_block0_mid_tensor_dump failed: %s", exc)
-
-
 # ---------------------------------------------------------------------------
 # V2A cross-attention injection (audio-quality fix)
 # ---------------------------------------------------------------------------
