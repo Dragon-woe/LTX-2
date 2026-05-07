@@ -282,6 +282,29 @@ class DiffusionStage:
             audio_state = _build_state(audio, audio_tools, noiser, self._dtype, self._device)
 
         with self._transformer_ctx(streaming_prefetch_count, video_tools=video_tools) as base_transformer:
+            import os as _os
+            if (
+                _os.environ.get("LTX_AUDIO_TRACE") == "1"
+                or _os.environ.get("LTX_AUDIO_ATTN2_PROBE") == "1"
+                or _os.environ.get("LTX_ATTN2_TENSOR_DUMP") == "1"
+                or _os.environ.get("LTX_BLOCK0_MID_DUMP") == "1"
+            ):
+                try:
+                    _vm = base_transformer.velocity_model if hasattr(base_transformer, "velocity_model") else base_transformer.module.velocity_model
+                    if _os.environ.get("LTX_AUDIO_TRACE") == "1":
+                        from ltx_npu.audio_trace import install_audio_trace_hooks
+                        install_audio_trace_hooks(_vm)
+                    if _os.environ.get("LTX_AUDIO_ATTN2_PROBE") == "1":
+                        from ltx_npu.audio_attn2_probe import install_audio_attn2_probe
+                        install_audio_attn2_probe(_vm)
+                    if _os.environ.get("LTX_ATTN2_TENSOR_DUMP") == "1":
+                        from ltx_npu.audio_attn2_tensor_dump import install_audio_attn2_tensor_dump
+                        install_audio_attn2_tensor_dump(_vm)
+                    if _os.environ.get("LTX_BLOCK0_MID_DUMP") == "1":
+                        from ltx_npu.block0_mid_tensor_dump import install_block0_mid_tensor_dump
+                        install_block0_mid_tensor_dump(_vm)
+                except Exception:
+                    pass
             transformer = BatchSplitAdapter(base_transformer, max_batch_size=max_batch_size)
             video_state, audio_state = loop(
                 sigmas=sigmas,
