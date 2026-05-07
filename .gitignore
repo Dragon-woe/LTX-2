@@ -1,0 +1,100 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+checkpoints/
+*.egg-info
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Virtual environments
+.venv
+.python-version
+
+# IDE settings
+.idea/
+.vscode/
+
+# Other files
+.DS_Store
+tmp
+.wandb
+.env
+.env.*
+!.env.example
+*.log
+*.tmp
+*.bak
+*.bak_*
+*.fix
+*.v2a_fix
+local_archive/
+
+# Model checkpoints
+*.ckpt
+*.pt
+*.safetensors
+*.sft
+
+# Media outputs (generated videos/images)
+*.gif
+*.heic
+*.heif
+*.jpg
+*.jpeg
+*.m4a
+*.mov
+*.mp4
+*.png
+*.wav
+*.webp
+
+# Test outputs and benchmark logs
+outputs/
+output/
+output_*/
+benchmark_*.log
+logs/
+
+# Local profiler and NPU artifacts
+prof_data/
+kernel_meta/
+fusion_result.json
+*.json.bak
+*.o
+
+# Tensor dumps and precision/debug artifacts
+dump_*/
+mid_*/
+prep_*/
+probe_*/
+trace_*/
+pt/
+pt_*/
+precision_debug/
+precision_debug_*/
+
+# One-off local patch/debug scripts
+fix_*.py
+force_*.py
+patch_*.py
+restore_*.py
+sync_noise*.py
+final_safety_lock.py
+test_audio_fix.sh
+
+# Temporary test scripts
+run_004_tests.sh
+
+# NPU compiler artifacts
+fusion_result.json
+kernel_meta/
+*.o
+*.json.bak
+
+# NPU compilation artifacts
+fusion_result.json
+kernel_meta/
