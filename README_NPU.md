@@ -96,6 +96,11 @@ export FUSED_RMSNORM=1
 export PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
 export LTX_ENABLE_AUDIO_ON_NPU=1
 export LTX_DISABLE_TQDM=1
+export LTX_ENABLE_RESIDENT_UPSAMPLER=1
+export LTX_STAGE2_VIDEO_ONLY=1
+export LTX_FSDP_FORWARD_PREFETCH=1
+export LTX_FSDP_LIMIT_ALL_GATHERS=1
+export LTX_FSDP_REPLICATE_AUDIO=audio
 
 unset LTX_PIPELINE_PROFILER
 unset LTX_AUDIO_HEAD_PARALLEL
@@ -110,6 +115,11 @@ Meaning of the most important variables:
 | `FUSED_RMSNORM` | `1` | Use Ascend fused RMSNorm |
 | `LTX_ENABLE_AUDIO_ON_NPU` | `1` | Enable model-generated audio on NPU |
 | `LTX_DISABLE_TQDM` | `1` | Disable progress bars for best host-side performance |
+| `LTX_ENABLE_RESIDENT_UPSAMPLER` | `1` | Keep the spatial upsampler resident on NPU |
+| `LTX_STAGE2_VIDEO_ONLY` | `1` | Run stage 2 as video-only and keep stage 1 audio latent |
+| `LTX_FSDP_FORWARD_PREFETCH` | `1` | Prefetch the next FSDP block parameters during DiT forward |
+| `LTX_FSDP_LIMIT_ALL_GATHERS` | `1` | Keep FSDP all-gather scheduling bounded; disabling this was slower in validation |
+| `LTX_FSDP_REPLICATE_AUDIO` | `audio` | Replicate audio self/cross-text/MLP submodules to reduce FSDP all-gather traffic |
 | `LTX_PIPELINE_PROFILER` | unset or `0` | Keep profiler off for production timing |
 
 ## 6. Clean Residual NPU Processes
@@ -158,8 +168,20 @@ Validated benchmark configuration:
 |---------------|-----------------|
 | 8-card video-only | 16.51s |
 | 8-card video + resident full-BWE audio + no tqdm | 16.61s |
+| Optimized 8-card video + audio, recommended env above | ~9.73s |
+
+Additional experimental FSDP audio replication modes are available for profiling:
+
+| `LTX_FSDP_REPLICATE_AUDIO` | Result |
+|--------------------------------|--------|
+| `audio` | Recommended stable setting, ~9.73s |
+| `audio_a2v` | Similar to `audio` in validation |
+| `audio_v2a` | Single run reached 9.50s, but rerun regressed to ~10.01s |
+| `audio_av` | Slower in validation due to extra replicated parameters |
 
 `Total Inference` measures model inference after warmup. It does not include the final MP4 encoding/muxing time.
+
+Latest Ascend `msprof` data on the optimized configuration shows that DiT is still the dominant cost. Communication is led by FSDP `hcom_allGather_`, followed by Ulysses `hcom_alltoall_`; broadcast is not the main bottleneck.
 
 You can inspect the output stream with:
 

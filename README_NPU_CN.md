@@ -96,6 +96,11 @@ export FUSED_RMSNORM=1
 export PYTORCH_NPU_ALLOC_CONF=expandable_segments:True
 export LTX_ENABLE_AUDIO_ON_NPU=1
 export LTX_DISABLE_TQDM=1
+export LTX_ENABLE_RESIDENT_UPSAMPLER=1
+export LTX_STAGE2_VIDEO_ONLY=1
+export LTX_FSDP_FORWARD_PREFETCH=1
+export LTX_FSDP_LIMIT_ALL_GATHERS=1
+export LTX_FSDP_REPLICATE_AUDIO=audio
 
 unset LTX_PIPELINE_PROFILER
 unset LTX_AUDIO_HEAD_PARALLEL
@@ -110,6 +115,11 @@ unset LTX_AUDIO_ALL_RANKS
 | `FUSED_RMSNORM` | `1` | 使用 Ascend 融合 RMSNorm |
 | `LTX_ENABLE_AUDIO_ON_NPU` | `1` | 开启模型自生成音频 |
 | `LTX_DISABLE_TQDM` | `1` | 关闭进度条，降低 host 侧 stdout 开销 |
+| `LTX_ENABLE_RESIDENT_UPSAMPLER` | `1` | 将 spatial upsampler 常驻在 NPU 上 |
+| `LTX_STAGE2_VIDEO_ONLY` | `1` | stage2 只细化 video，audio 复用 stage1 latent |
+| `LTX_FSDP_FORWARD_PREFETCH` | `1` | DiT forward 时预取下一层 FSDP 参数 |
+| `LTX_FSDP_LIMIT_ALL_GATHERS` | `1` | 保持 FSDP all-gather 调度受限；验证中关闭会变慢 |
+| `LTX_FSDP_REPLICATE_AUDIO` | `audio` | 复制 audio self/text-cross/MLP 子模块，减少 FSDP all-gather 通信 |
 | `LTX_PIPELINE_PROFILER` | unset 或 `0` | 正式性能测试时关闭 profiler |
 
 ## 6. 清理残留 NPU 进程
@@ -158,8 +168,20 @@ bash examples/scripts/run_8npu_distilled.sh
 |------|-----------------|
 | 8 卡 video-only | 16.51s |
 | 8 卡视频 + resident full-BWE 音频 + no tqdm | 16.61s |
+| 推荐环境变量下的优化版 8 卡视频 + 音频 | 约 9.73s |
+
+额外提供以下 FSDP audio 复制实验模式，主要用于 profiling：
+
+| `LTX_FSDP_REPLICATE_AUDIO` | 验证结果 |
+|--------------------------------|----------|
+| `audio` | 推荐稳定配置，约 9.73s |
+| `audio_a2v` | 与 `audio` 基本持平 |
+| `audio_v2a` | 单次达到 9.50s，但复跑回到约 10.01s，暂不作为推荐配置 |
+| `audio_av` | 复制参数更多，验证中更慢 |
 
 `Total Inference` 表示 warmup 后的模型推理耗时，不包含最后 MP4 编码和 mux 时间。
+
+最新优化配置的 Ascend `msprof` 显示，DiT 仍是主要耗时；通信热点主要是 FSDP `hcom_allGather_`，其次是 Ulysses `hcom_alltoall_`，broadcast 已不是主要瓶颈。
 
 可以用下面命令检查输出音视频流：
 
