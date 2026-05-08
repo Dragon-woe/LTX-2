@@ -34,6 +34,13 @@ if TYPE_CHECKING:
 logger = logging.getLogger(__name__)
 
 
+_ACTIVE_PIPELINE_PROFILER: PipelineProfiler | _NullPipelineProfiler | None = None
+
+
+def get_active_profiler():
+    return _ACTIVE_PIPELINE_PROFILER
+
+
 class _NullPipelineProfiler:
     """No-op profiler used for production timing without sync hooks."""
 
@@ -44,6 +51,9 @@ class _NullPipelineProfiler:
         pass
 
     def add(self, name: str, elapsed: float) -> None:
+        pass
+
+    def add_aggregate(self, name: str, elapsed: float) -> None:
         pass
 
     def next_label(self, base: str) -> str:
@@ -365,12 +375,16 @@ class ParallelDistilledPipeline:
             self._hook_fsdp_transformer_ctx()
             if os.getenv("LTX_ENABLE_RESIDENT_TEXT_ENCODER", "1") == "1":
                 self._hook_resident_text_encoder()
-            if os.getenv("LTX_ENABLE_RESIDENT_EMBEDDINGS_PROCESSOR", "0") == "1":
+            if os.getenv("LTX_ENABLE_RESIDENT_EMBEDDINGS_PROCESSOR", "1") == "1":
                 self._hook_resident_embeddings_processor()
+            if os.getenv("LTX_BROADCAST_PROMPT_ENCODER", "1") == "1":
+                self._hook_prompt_encoder_broadcast()
             if os.getenv("LTX_ENABLE_RESIDENT_IMAGE_ENCODER", "0") == "1":
                 self._hook_resident_image_encoder()
             if os.getenv("LTX_ENABLE_RESIDENT_UPSAMPLER", "0") == "1":
                 self._hook_resident_upsampler()
+
+        self._hook_empty_image_conditioner_fastpath()
 
         self._hook_denoising_loop_timing()
 
@@ -453,8 +467,8 @@ class ParallelDistilledPipeline:
         if self.pcfg.sp_group is not None:
             inject_ulysses_attention(velocity_model, self.pcfg.sp_group)
             install_sequence_parallel_hooks(velocity_model, self.pcfg.sp_group)
-            # V2A pre-hook gather 已冗余 (A2V=off + audio仅rank0) 见 transformer.py
-            # inject_ulysses_v2a_cross_attention(velocity_model, self.pcfg.sp_group)
+            if os.getenv("LTX_ENABLE_V2A", "0") == "1":
+                inject_ulysses_v2a_cross_attention(velocity_model, self.pcfg.sp_group)
             logger.info(
                 "Installed e2e sequence parallel (degree=%d) before FSDP wrap",
                 self.pcfg.ulysses_degree,
@@ -506,6 +520,9 @@ class ParallelDistilledPipeline:
         The model stays on device across all generate calls.
         """
         prompt_encoder = self._pipeline.prompt_encoder
+        if not self.pcfg.is_main:
+            logger.info("Resident text encoder skipped on non-main rank.")
+            return
         device = self.ctx.get_device()
         dtype = prompt_encoder._dtype
 
@@ -538,6 +555,9 @@ class ParallelDistilledPipeline:
     def _hook_resident_embeddings_processor(self) -> None:
         """Pre-build embeddings processor and keep it resident on device."""
         prompt_encoder = self._pipeline.prompt_encoder
+        if not self.pcfg.is_main:
+            logger.info("Resident embeddings processor skipped on non-main rank.")
+            return
         device = self.ctx.get_device()
         dtype = prompt_encoder._dtype
 
@@ -585,6 +605,83 @@ class ParallelDistilledPipeline:
 
         prompt_encoder.__class__.__call__ = patched_prompt_encoder_call
 
+    def _hook_prompt_encoder_broadcast(self) -> None:
+        """Encode prompts once on rank0 and broadcast the embeddings outputs."""
+        if not dist.is_initialized():
+            return
+
+        prompt_encoder = self._pipeline.prompt_encoder
+        device = self.ctx.get_device()
+        is_main = self.pcfg.is_main
+        original_call = prompt_encoder.__class__.__call__
+
+        def _dtype_from_name(name: str) -> torch.dtype:
+            return getattr(torch, name.split(".")[-1])
+
+        def _broadcast_outputs(outputs):
+            meta = [
+                {
+                    "video_shape": tuple(out.video_encoding.shape),
+                    "video_dtype": str(out.video_encoding.dtype),
+                    "audio_present": out.audio_encoding is not None,
+                    "audio_shape": tuple(out.audio_encoding.shape) if out.audio_encoding is not None else None,
+                    "audio_dtype": str(out.audio_encoding.dtype) if out.audio_encoding is not None else None,
+                    "mask_shape": tuple(out.attention_mask.shape),
+                    "mask_dtype": str(out.attention_mask.dtype),
+                }
+                for out in outputs
+            ]
+            payload = [meta]
+            dist.broadcast_object_list(payload, src=0)
+            for out in outputs:
+                dist.broadcast(out.video_encoding, src=0)
+                if out.audio_encoding is not None:
+                    dist.broadcast(out.audio_encoding, src=0)
+                dist.broadcast(out.attention_mask, src=0)
+            return outputs
+
+        def _receive_outputs():
+            payload = [None]
+            dist.broadcast_object_list(payload, src=0)
+            outputs = []
+            for item in payload[0]:
+                video_encoding = torch.empty(item["video_shape"], device=device, dtype=_dtype_from_name(item["video_dtype"]))
+                audio_encoding = None
+                if item["audio_present"]:
+                    audio_encoding = torch.empty(item["audio_shape"], device=device, dtype=_dtype_from_name(item["audio_dtype"]))
+                attention_mask = torch.empty(item["mask_shape"], device=device, dtype=_dtype_from_name(item["mask_dtype"]))
+                outputs.append((video_encoding, audio_encoding, attention_mask))
+            for video_encoding, audio_encoding, attention_mask in outputs:
+                dist.broadcast(video_encoding, src=0)
+                if audio_encoding is not None:
+                    dist.broadcast(audio_encoding, src=0)
+                dist.broadcast(attention_mask, src=0)
+            from ltx_core.text_encoders.gemma.embeddings_processor import EmbeddingsProcessorOutput
+            return [EmbeddingsProcessorOutput(v, a, m) for v, a, m in outputs]
+
+        def broadcasted_prompt_encoder_call(
+            self_pe,
+            prompts: list[str],
+            *,
+            enhance_first_prompt: bool = False,
+            enhance_prompt_image: str | None = None,
+            enhance_prompt_seed: int = 42,
+            streaming_prefetch_count: int | None = None,
+        ):
+            if is_main:
+                outputs = original_call(
+                    self_pe,
+                    prompts,
+                    enhance_first_prompt=enhance_first_prompt,
+                    enhance_prompt_image=enhance_prompt_image,
+                    enhance_prompt_seed=enhance_prompt_seed,
+                    streaming_prefetch_count=streaming_prefetch_count,
+                )
+                return _broadcast_outputs(outputs)
+            return _receive_outputs()
+
+        prompt_encoder.__class__.__call__ = broadcasted_prompt_encoder_call
+
     def _hook_resident_image_encoder(self) -> None:
         import logging
         logger = logging.getLogger(__name__)
@@ -620,11 +717,53 @@ class ParallelDistilledPipeline:
                 profiler._last_gpu_model_exit = time.perf_counter()
 
         self._pipeline.image_conditioner.__class__.__call__ = patched_image_conditioner_call
+
+    def _hook_empty_image_conditioner_fastpath(self) -> None:
+        """Skip VideoEncoder build/free when no image conditionings are provided."""
+        image_conditioner = self._pipeline.image_conditioner
+        profiler = self.profiler
+
+        def patched_image_conditioner_call(self_ic, fn):
+            closure = getattr(fn, "__closure__", None) or ()
+            for cell in closure:
+                try:
+                    if cell.cell_contents == []:
+                        profiler.add("skip empty VideoEncoder", 0.0)
+                        return []
+                except Exception:
+                    continue
+            from ltx_pipelines.utils.gpu_model import gpu_model
+
+            with gpu_model(self_ic._build_encoder()) as encoder:
+                return fn(encoder)
+
+        image_conditioner.__class__.__call__ = patched_image_conditioner_call
     def _hook_resident_upsampler(self) -> None:
-        """Pre-build spatial upsampler and reuse the resident video encoder."""
+        """Pre-build spatial upsampler and keep only encoder statistics resident."""
         upsampler_block = self._pipeline.upsampler
         device = self.ctx.get_device()
         dtype = upsampler_block._dtype
+
+        if not hasattr(self, "_resident_video_encoder"):
+            real_encoder = upsampler_block._encoder_builder.build(device=torch.device("cpu"), dtype=dtype).eval()
+
+            class HollowEncoderProxy:
+                def __init__(self, real):
+                    self._real = real
+
+                def __getattr__(self, name):
+                    return getattr(self._real, name)
+
+                def to(self, *args, **kwargs):
+                    return self
+
+                def eval(self):
+                    return self
+
+                def __call__(self, *args, **kwargs):
+                    raise RuntimeError("Hollow encoder is statistics-only")
+
+            self._resident_video_encoder = HollowEncoderProxy(real_encoder)
 
         logger.info("Building spatial upsampler on device (resident mode)...")
         self._resident_spatial_upsampler = (
@@ -856,20 +995,12 @@ class ParallelDistilledPipeline:
 
         def timed_euler_loop(sigmas, video_state, audio_state, stepper, transformer, denoiser):
             import torch.distributed as dist
-            if dist.is_initialized() and dist.get_world_size() > 1:
-                if video_state is not None and getattr(video_state, 'latent', None) is not None:
-                    dist.broadcast(video_state.latent, src=0)
-                if audio_state is not None and getattr(audio_state, 'latent', None) is not None:
-                    dist.broadcast(audio_state.latent, src=0)
-            import torch.distributed as dist
-            # 🚀 核心修复：强制同步初始噪声
+            # Keep initial noise identical across ranks before sequence-parallel denoising.
             if dist.is_initialized() and dist.get_world_size() > 1:
                 if video_state is not None and getattr(video_state, "latent", None) is not None:
                     dist.broadcast(video_state.latent, src=0)
                 if audio_state is not None and getattr(audio_state, "latent", None) is not None:
                     dist.broadcast(audio_state.latent, src=0)
-
-            # 🚀 音频 Padding 已移除：audio 在 Ulysses SP 中不参与序列切分
 
             if ctx is not None:
                 ctx.synchronize()
@@ -993,11 +1124,17 @@ class ParallelDistilledPipeline:
 
         self.timer = TimingReport(self.ctx)
         self.profiler.reset()
-        with self.timer.stage("Total Inference"):
-            result = self._patched_pipeline_call(**call_kwargs)
-            if self.pcfg.is_main and result is not None:
-                video_chunks = list(result[0])
-                audio = result[1]
+        global _ACTIVE_PIPELINE_PROFILER
+        prev_profiler = _ACTIVE_PIPELINE_PROFILER
+        _ACTIVE_PIPELINE_PROFILER = self.profiler
+        try:
+            with self.timer.stage("Total Inference"):
+                result = self._patched_pipeline_call(**call_kwargs)
+                if self.pcfg.is_main and result is not None:
+                    video_chunks = list(result[0])
+                    audio = result[1]
+        finally:
+            _ACTIVE_PIPELINE_PROFILER = prev_profiler
 
         if self.pcfg.is_main:
             print(self.timer.report())

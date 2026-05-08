@@ -148,7 +148,9 @@ class DistilledPipeline:
             )
         )
 
-        video_state, audio_state = self.stage(
+        stage_2_video_only = os.getenv("LTX_STAGE2_VIDEO_ONLY", "1") == "1"
+        stage_1_audio_state = audio_state
+        video_state, stage_2_audio_state = self.stage(
             denoiser=SimpleDenoiser(video_context, audio_context),
             sigmas=stage_2_sigmas,
             noiser=noiser,
@@ -162,13 +164,16 @@ class DistilledPipeline:
                 noise_scale=stage_2_sigmas[0].item(),
                 initial_latent=upscaled_video_latent,
             ),
-            audio=ModalitySpec(
+            audio=None
+            if stage_2_video_only
+            else ModalitySpec(
                 context=audio_context,
                 noise_scale=stage_2_sigmas[0].item(),
                 initial_latent=audio_state.latent,
             ),
             streaming_prefetch_count=streaming_prefetch_count,
         )
+        audio_state = stage_1_audio_state if stage_2_video_only else stage_2_audio_state
 
         decoded_video = self.video_decoder(video_state.latent, tiling_config, generator)
 

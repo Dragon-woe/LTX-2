@@ -32,6 +32,9 @@ def _collect_fsdp_ignored_modules(model):
     LTX_FSDP_REPLICATE_AUDIO=block0_attn2 : only block0.audio_attn2 replicated
     LTX_FSDP_REPLICATE_AUDIO=attn2        : all audio_attn2 replicated
     LTX_FSDP_REPLICATE_AUDIO=audio         : audio_attn1/audio_attn2/audio_ff replicated
+    LTX_FSDP_REPLICATE_AUDIO=audio_a2v     : audio plus A2V cross-attn replicated
+    LTX_FSDP_REPLICATE_AUDIO=audio_v2a     : audio plus V2A cross-attn replicated
+    LTX_FSDP_REPLICATE_AUDIO=audio_av      : audio plus both A/V cross-attn replicated
     """
     mode = os.getenv("LTX_FSDP_REPLICATE_AUDIO", "0").strip().lower()
     if mode in ("", "0", "false", "off", "none"):
@@ -45,11 +48,21 @@ def _collect_fsdp_ignored_modules(model):
             hit = lname.endswith("transformer_blocks.0.audio_attn2")
         elif mode == "attn2":
             hit = re.search(r"transformer_blocks\.\d+\.audio_attn2$", lname) is not None
-        elif mode == "audio":
+        elif mode in ("audio", "audio_a2v", "audio_v2a", "audio_av"):
             hit = (
                 re.search(r"transformer_blocks\.\d+\.audio_attn1$", lname) is not None
                 or re.search(r"transformer_blocks\.\d+\.audio_attn2$", lname) is not None
                 or re.search(r"transformer_blocks\.\d+\.audio_ff$", lname) is not None
+                or (
+                    mode in ("audio_a2v", "audio_av")
+                    and re.search(r"transformer_blocks\.\d+\.audio_to_video_attn$", lname) is not None
+                )
+                or (
+                    mode in ("audio_v2a", "audio_av")
+                    and (
+                        re.search(r"transformer_blocks\.\d+\.video_to_audio_attn$", lname) is not None
+                    )
+                )
             )
         else:
             raise ValueError(f"Unknown LTX_FSDP_REPLICATE_AUDIO={mode}")
@@ -107,6 +120,8 @@ def shard_transformer(
         use_orig_params=True,
         mixed_precision=mp_policy,
         ignored_modules=ignored_modules if ignored_modules else None,
+        forward_prefetch=os.getenv("LTX_FSDP_FORWARD_PREFETCH", "1") == "1",
+        limit_all_gathers=os.getenv("LTX_FSDP_LIMIT_ALL_GATHERS", "1") == "1",
     )
 
     num_params = sum(p.numel() for p in fsdp_model.parameters())

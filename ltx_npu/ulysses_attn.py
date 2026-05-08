@@ -25,6 +25,7 @@ _DISABLE_AUDIO_SPECIAL = os.getenv("LTX_UA2A_DISABLE_AUDIO_SPECIAL", "0") == "1"
 _ENABLE_AUDIO_HP = os.getenv("LTX_AUDIO_HEAD_PARALLEL", "0") == "1"
 _DISABLE_A2V = os.getenv("LTX_UA2A_DISABLE_A2V", "1") == "1"
 _DISABLE_V2A = os.getenv("LTX_UA2A_DISABLE_V2A", "1") == "1"
+_ENABLE_V2A_OVERLAP = os.getenv("LTX_V2A_OVERLAP_GATHER", "0") == "1"
 
 
 def _npu_synchronize():
@@ -331,6 +332,9 @@ def _install_v2a_context_gather(v2a_module, sp_group):
 
     def _pre_hook(module, args, kwargs):
         kwargs = dict(kwargs)  # mutable
+        if getattr(module, "_ltx_v2a_skip_gather_once", False):
+            module._ltx_v2a_skip_gather_once = False
+            return args, kwargs
         if kwargs.get('context') is not None:
             kwargs['context'] = _gather_tensor_along_seq(kwargs['context'], sp_group)
         if kwargs.get('k_pe') is not None:
@@ -338,6 +342,7 @@ def _install_v2a_context_gather(v2a_module, sp_group):
         return args, kwargs
 
     v2a_module.register_forward_pre_hook(_pre_hook, with_kwargs=True)
+    v2a_module._ltx_v2a_sp_group = sp_group
 
 
 class _V2AAttentionGather:
@@ -367,6 +372,55 @@ def _gather_tensor_along_seq(tensor, group):
     gathered = [torch.zeros_like(tensor) for _ in range(world_size)]
     dist.all_gather(gathered, tensor, group=group)
     return torch.cat(gathered, dim=1)
+
+
+class _AsyncSeqGather:
+    def __init__(self, tensor, group, dim):
+        self._dim = dim
+        world_size = dist.get_world_size(group)
+        if world_size <= 1:
+            self._work = None
+            self._parts = None
+            self._result = tensor
+        else:
+            self._parts = [torch.zeros_like(tensor) for _ in range(world_size)]
+            self._work = dist.all_gather(self._parts, tensor.contiguous(), group=group, async_op=True)
+            self._result = None
+
+    def wait(self):
+        if self._result is not None:
+            return self._result
+        self._work.wait()
+        self._result = torch.cat(self._parts, dim=self._dim).contiguous()
+        return self._result
+
+
+class _AsyncV2AGather:
+    def __init__(self, module, context, k_pe, group):
+        self._module = module
+        self._context = _AsyncSeqGather(context, group, dim=1) if context is not None else None
+        self._k_pe = None
+        if k_pe is not None:
+            cos, sin = k_pe
+            dim = 2 if cos.ndim == 4 else 1
+            self._k_pe = (_AsyncSeqGather(cos, group, dim=dim), _AsyncSeqGather(sin, group, dim=dim))
+
+    def wait(self):
+        context = self._context.wait() if self._context is not None else None
+        k_pe = None
+        if self._k_pe is not None:
+            k_pe = (self._k_pe[0].wait(), self._k_pe[1].wait())
+        self._module._ltx_v2a_skip_gather_once = True
+        return context, k_pe
+
+
+def start_v2a_context_gather(v2a_module, context, k_pe):
+    if not _ENABLE_V2A_OVERLAP:
+        return None
+    group = getattr(v2a_module, "_ltx_v2a_sp_group", None)
+    if group is None or not dist.is_initialized() or dist.get_world_size(group) <= 1:
+        return None
+    return _AsyncV2AGather(v2a_module, context, k_pe, group)
 
 
 def _split_rope(pe, rank, world_size):

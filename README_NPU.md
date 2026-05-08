@@ -1,5 +1,7 @@
 # Ascend NPU Inference Guide
 
+中文版本见 [README_NPU_CN.md](README_NPU_CN.md)。
+
 This guide explains how to run LTX-2.3 Distilled inference on Ascend 910B3 NPUs from a clean environment. It is written for users who are new to this repository and want to run text-to-video generation with model-generated audio.
 
 ## 1. Hardware And Software
